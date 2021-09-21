@@ -1,0 +1,270 @@
+.main{
+    margin-left: 290px;
+    padding: 20px;
+    transition: all 0.3s ease;
+    overflow-x: hidden;
+    .container{
+        // dashboard
+        .box__container{
+            display: grid;
+            grid-template-rows: 1fr 1fr 1fr;
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 10px;
+            .boxs{
+                width: 100%;
+                height: 100px;
+                background-color: orange;
+                text-align: center;
+                padding: 6px 3px;
+                font-size: 1.2rem;
+                div{
+                    margin-top: 16px;
+                    font-size: 1.5rem;
+                }
+            }
+        }
+        // insert show container for supplier and all
+        .insert__show--container{
+            display: grid;
+            grid-template-rows: 140px 1fr;
+            grid-gap: 20px;
+            .insert{
+                h3{
+                    margin-bottom: 10px;
+                }
+                // supplier
+                .insert__form{
+                    display: grid;
+                    grid-template-columns: repeat(3, 1fr);
+                    grid-gap: 5px;
+                    .insert__form--input,
+                    .insert__form--select{
+                        input,
+                        select{
+                            width: 100%;
+                            font-size: 14px;
+                            padding: 5px 8px;
+                        }
+                        input:focus{
+                            outline: 1px solid cornflowerblue;
+                        }
+                    }
+                    .insert__form--submit{
+                        .submit{
+                            width: 30%;
+                            background-color: cornflowerblue;
+                            color: #fff;
+                            border: 0;
+                            outline: none;
+                            height: 100%;
+                            cursor: pointer;
+                            transition: all 0.3 ease;
+                        }
+                        .purchase__req--submit{
+                            height: 30px;
+                        }
+                        .submit:hover{
+                            background-color: rgb(77, 132, 233);
+                        }
+                    }
+                }
+                // product insert form
+                .product__insert--form{
+                    grid-template-columns: repeat(2, 1fr);
+                }
+            }
+            // show
+            .show__table--container{
+                .heading__search--container{
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    h3{
+                        margin-bottom: 10px;
+                    }
+                    .search__container{
+                        margin: 5px 0;
+                        input{
+                            width: 200px;
+                            font-size: 1rem;
+                            padding: 6px 10px;
+                            border-radius: 4px;
+                            border: none;
+                        }
+                        input:focus{
+                            outline: none;
+                        }
+                    }
+                }
+                .table, tr, th, td{
+                    border: 1px solid #000;
+                    border-collapse: collapse;
+                }
+                .table{
+                    width: 100%;
+                    .table__heading{
+                        background-color: orange;
+                        color: #fff;
+                        .table__heading--items{
+                            padding: 4px 0;
+                            font-size: 1.2rem;
+                        }
+                        .name{
+                            width: 75%;
+                        }
+                    }
+                    .table--data:nth-child(even){
+                        background-color: #fff;
+                    }
+                    .table--data{
+                        text-align: center;
+                        .table--data--items{
+                            padding: 5px 0;
+                        }
+                        .table--data--action{
+                            .update,
+                            .delete{
+                                border: none;
+                                background-color: transparent;
+                                color: blue;
+                                padding: 0 8px;
+                                font-size: 1.1rem;
+                                cursor: pointer;
+                            }
+                            .update:hover,
+                            .delete:hover{
+                                color: crimson;
+                            }
+                        }
+                    }
+                }
+                // supplier table
+                .supplier__table{
+                    tr{
+                        th{
+                            padding: 5px 0;
+                            font-size: 12px;
+                        }
+                        .sl{
+                            width: 3%;
+                        }
+                        .supplier--name{
+                            width: 15%;
+                        }
+                        .contact--person{
+                            width: 15%;
+                        }
+                        .contact--number{
+                            width: 8%;
+                        }
+                        .email{
+                            width: 20%;
+                        }
+                        .whatsapp--number{
+                            width: 8%;
+                        }
+                        .address{
+                            width: 14%;
+                        }
+                        .status{
+                            width: 5%;
+                        }
+                        .action{
+                            width: 7%;
+                        }
+                    }
+                }
+                // client table
+                .client__table{
+                    tr{
+                        th{
+                            padding: 5px 0;
+                            font-size: 12px;
+                        }
+                        .client__sl{
+                            width: 3%;
+                        }
+                        .client__name{
+                            width: 15%;
+                        }
+                        .client__contact--person{
+                            width: 15%;
+                        }
+                        .client__contact--number{
+                            width: 10%;
+                        }
+                        .client__email{
+                            width: 20%;
+                        }
+                        .client__address{
+                            width: 25%;
+                        }
+                        .action{
+                            width: 12%;
+                        }
+                    }
+                }
+            }
+            // product show table container
+            .products__show--table--container{
+                width: 100%;
+                .product__table{
+                    .product__table--data{
+                        .sl{ width: 4%; }
+                        .product--name, .brands, .category, .stock, .p_price, .s_price, .status, .action{ width: 12%; }
+                    }
+                }
+            }
+            // stock show table container
+            .stock__show--table--container{
+                width: 100%;
+                .stock__table{
+                    .stock__table--data{
+                        .sl{ width: 8%; }
+                        .product--name{ width: 16%; }
+                        .brands{ width: 7%; }
+                        .category{ width: 10%; }
+                        .sub__category{ width: 13%; }
+                        .model{ width: 8%; }
+                        .stock{ width: 6%; }
+                        .p_price{ width: 8%; }
+                        .s_price{ width: 8%; }
+                        .status{ width: 8%; }
+                        .action{ width: 8%; }
+                    }
+                }
+            }
+        }
+        // for client only
+        .client__insert__show--container{
+            grid-template-rows: 100px 1fr;
+        }
+        // category only
+        .category__insert__show--container{
+            grid-template-rows: 80px 1fr;
+        }
+        // sub category insert show container
+        .sub__category__insert__show--container{
+            grid-template-rows: 80px 1fr;
+        }
+        // products
+        .products__insert__show--container{
+            grid-template-rows: 1fr !important;
+            grid-template-columns: 400px 1fr;
+        }
+        // stock show 
+        .stock__insert__show--container{
+            grid-template-rows: 1fr !important;
+            grid-template-columns: 1fr !important;
+        }
+        .purchase__req__insert__show--container{
+            grid-template-rows: 160px;
+        }
+        .purchase__insert__show--container{
+            grid-template-rows: 200px;
+        }
+    }
+}
+.main.toggled__margin--left{
+    margin-left: 80px !important;
+}

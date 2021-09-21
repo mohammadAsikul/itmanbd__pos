@@ -1,0 +1,47 @@
+table name `user`
+	pk	id		int(11)
+		username	varchar(30)
+		fullName	varchar(50)
+		email		varchar(50)
+		password	varchar(32)
+		last_login	datetime
+
+table name `item`
+	pk	id		int(11)
+	fk	user_id		int(11)		one to many
+		code		varchar(50)
+		name		varchar(100)
+		category	int(11)
+		sub_category	int(11)
+		brand		int(11)
+		serials		varchar(1000)
+		l_parchase_date	datetime
+		quantity	number
+		item_unit	int(11)
+		description	varchar(1000)
+		regular_price	number
+		supplier	int(11)
+		warrinty	number
+
+table name `item_info`
+	pk	id		serial
+		item_id		int(11)
+		purchase_date	datetime
+		expiration_date	datetime
+		supplier	text
+		price		number
+		quantity	number
+		last_use	datetime
+
+
+table name `item_images`
+	pk	id		serial
+	fk	item_id		int(11)
+		image_url	text
+		
+		
+
+table name `related_item`
+	pk	id		serial
+	fk	item_id		int(11)
+		related_item_id	text		

@@ -1,0 +1,24 @@
+.header{
+    .header__container{
+        height: 50px;
+        padding-left: 230px;
+        background-color: #0F2D4F;
+        // user profile btn
+        display: grid;
+        grid-template-rows: 1fr;
+        grid-template-columns: 1fr 150px;
+        justify-content: right;
+        .user__profile--btn{
+            width: 100%;
+            height: 100%;
+            font-size: 1rem;
+            background-color: transparent;
+            color: #fff;
+            border: 0;
+            cursor: pointer;
+        }
+        .user__profile--btn:hover{
+            background-color: #133e6e;
+        }
+    }
+}

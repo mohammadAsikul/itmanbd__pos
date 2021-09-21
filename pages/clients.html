@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clients</title>
+    <!-- favicon -->
+    <link rel="shortcut icon" href="../assets/logo/favicon.png" type="image/x-icon">
+    <!-- font-awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- external css -->
+    <link rel="stylesheet" href="../scss/style.css">
+    <!-- jQuery local file -->
+    <script src="../js/jQuery-min.js"></script>
+    <!-- font-awesome js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js" integrity="sha512-Tn2m0TIpgVyTzzvmxLNuqbSJH3JP8jm+Cy3hvHrW7ndTDcJ1w5mBiksqDBb8GpE2ksktFvDB/ykZ0mDpsZj20w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body>
+    <div class="wrapper">
+        <!-- header -->
+        <header id="header" class="header">
+            <div class="container header__container">
+                <!-- bulk -->
+                <div class="bulk"></div>
+                <!-- login_user_profile -->
+                <button id="user_profile_btn" class="user__profile--btn btn">
+                    <span class="icons user__login--icon">
+                        <i class="fas fa-user-cog"></i>
+                    </span>
+                    User Name
+                </button>
+            </div>
+            <!-- profile__container -->
+            <div class="profile__container">
+
+            </div>
+        </header>
+        <!-- menu -->
+        <nav id="menu" class="menu">
+            <div class="btn toggle__btn--container">
+                <!-- toggle btn -->
+                <button id="toggle_btn" class="toggle__btn">
+                    <div class="border__box border__box1"></div>
+                    <div class="border__box border__box2"></div>
+                    <div class="border__box border__box3"></div>
+                    <!-- <div class="border__box border__box4"></div> -->
+                </button>
+            </div>
+            <!-- logo section -->
+            <div class="logo company__logo">
+                <a href="#">
+                    <img src="../assets/logo/logo.png" alt="company__logo">
+                </a>
+            </div>
+            <!-- menu__ul -->
+            <ul class="menu__ul">
+                <li>
+                    <a href="dashboard.html" class="links link1">
+                        <span class="menu__icons">
+                            <i class="fas fa-tachometer-alt"></i>
+                        </span>
+                        <!-- content -->
+                        <span class="menu__contents">
+                            Dashboard                        
+                        </span>
+                    </a>
+                    <!-- dropdown menu -->
+                    <ul class="drop__menu">
+                        <!-- <li class="drop__menu__li">
+                            <a href="#" class="drop__menu__li--links">Stock Report</a>
+                        </li> -->
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" class="links link2">
+                        <span class="menu__icons">
+                            <i class="fas fa-cog"></i>
+                        </span>
+                        <!-- content -->
+                        <span class="menu__contents">
+                            System                        
+                        </span>
+                    </a>
+                    <!-- dropdown menu -->
+                    <ul class="drop__menu">
+                        <!-- <li class="drop__menu__li">
+                            <a href="#" class="drop__menu__li--links">Stock Report</a>
+                        </li> -->
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" class="links link3">
+                        <span class="menu__icons">
+                            <i class="fas fa-tools"></i>
+                        </span>
+                        <!-- content -->
+                        <span class="menu__contents">
+                            Setup                        
+                        </span>
+                    </a>
+                    <!-- dropdown menu -->
+                    <ul class="drop__menu">
+                        <li class="drop__menu__li">
+                            <a href="supplier.html" class="drop__menu__li--links">Suppliers</a>
+                        </li>
+                        <li class="drop__menu__li">
+                            <a href="clients.html" class="drop__menu__li--links">Clients</a>
+                        </li>
+                        <li class="drop__menu__li">
+                            <a href="category.html" class="drop__menu__li--links">Category</a>
+                        </li>
+                        <li class="drop__menu__li">
+                            <a href="sub_category.html" class="drop__menu__li--links">Sub_Category</a>
+                        </li>
+                        <li class="drop__menu__li">
+                            <a href="brands.html" class="drop__menu__li--links">Brands</a>
+                        </li>
+                        <li class="drop__menu__li">
+                            <a href="products.html" class="drop__menu__li--links">Products</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="stock.html" class="links link4">
+                        <span class="menu__icons">
+                            <i class="fas fa-cubes"></i>
+                        </span>
+                        <!-- content -->
+                        <span class="menu__contents">
+                            Stock                        
+                        </span>
+                    </a>
+                    <!-- dropdown menu -->
+                    <ul class="drop__menu">
+                        <!-- <li class="drop__menu__li">
+                            <a href="#" class="drop__menu__li--links">Stock Report</a>
+                        </li> -->
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" class="links link5">
+                        <span class="menu__icons">
+                            <i class="fas fa-shopping-cart"></i>
+                        </span>
+                        <!-- content -->
+                        <span class="menu__contents">
+                            Purchase                        
+                        </span>
+                    </a>
+                    <!-- dropdown menu -->
+                    <ul class="drop__menu">
+                        <li class="drop__menu__li">
+                            <a href="#" class="drop__menu__li--links">Purchase Requisition</a>
+                        </li>
+                        <li class="drop__menu__li">
+                            <a href="#" class="drop__menu__li--links">Purchase Entry</a>
+                        </li>
+                        <li class="drop__menu__li">
+                            <a href="#" class="drop__menu__li--links">Purchase Requisition Update</a>
+                        </li>
+                        <li class="drop__menu__li">
+                            <a href="#" class="drop__menu__li--links">Purchase Entry Update</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" class="links link6">
+                        <span class="menu__icons">
+                            <i class="fas fa-cart-arrow-down"></i>
+                        </span>
+                        <!-- content -->
+                        <span class="menu__contents">
+                            Sales                        
+                        </span>
+                    </a>
+                    <!-- dropdown menu -->
+                    <ul class="drop__menu">
+                        <li class="drop__menu__li">
+                            <a href="#" class="drop__menu__li--links">Sales Order</a>
+                        </li>
+                        <li class="drop__menu__li">
+                            <a href="#" class="drop__menu__li--links">Sales Entry</a>
+                        </li>
+                        <li class="drop__menu__li">
+                            <a href="#" class="drop__menu__li--links">Sales Order Update</a>
+                        </li>
+                        <li class="drop__menu__li">
+                            <a href="#" class="drop__menu__li--links">Sales Entry Update</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" class="links link7">
+                        <span class="menu__icons">
+                            <i class="fas fa-calculator"></i>
+                        </span>  
+                        <!-- content -->
+                        <span class="menu__contents">
+                            Accounts               
+                        </span>  
+                    </a>
+                    <!-- dropdown menu -->
+                    <ul class="drop__menu">
+                        <li class="drop__menu__li">
+                            <a href="#" class="drop__menu__li--links">Income Statement</a>
+                        </li>
+                        <li class="drop__menu__li">
+                            <a href="#" class="drop__menu__li--links">Expence Statement</a>
+                        </li>
+                        <li class="drop__menu__li">
+                            <a href="#" class="drop__menu__li--links">Cash Statement</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" class="links link7">
+                        <span class="menu__icons">
+                            <i class="fas fa-folder-open"></i>
+                        </span>  
+                        <!-- content -->
+                        <span class="menu__contents">
+                            Reports                        
+                        </span>  
+                    </a>
+                    <!-- dropdown menu -->
+                    <ul class="drop__menu">
+                        <li class="drop__menu__li">
+                            <a href="#" class="drop__menu__li--links">Stock Report</a>
+                        </li>
+                        <li class="drop__menu__li">
+                            <a href="#" class="drop__menu__li--links">Supplier List</a>
+                        </li>
+                        <li class="drop__menu__li">
+                            <a href="#" class="drop__menu__li--links">Client List</a>
+                        </li>
+                        <li class="drop__menu__li">
+                            <a href="#" class="drop__menu__li--links">Purchase Report</a>
+                        </li>
+                        <li class="drop__menu__li">
+                            <a href="#" class="drop__menu__li--links">Sales Report</a>
+                        </li>
+                        <li class="drop__menu__li">
+                            <a href="#" class="drop__menu__li--links">Income Report</a>
+                        </li>
+                        <li class="drop__menu__li">
+                            <a href="#" class="drop__menu__li--links">Expence Report</a>
+                        </li>
+                        <li class="drop__menu__li">
+                            <a href="#" class="drop__menu__li--links">Cash Report</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <!-- main section start -->
+        <main id="main" class="main">
+            <div class="container">
+                <div class="insert__show--container client__insert__show--container">
+                    <!-- insert section -->
+                    <div class="insert">
+                        <h3>Client Entry</h3>
+                        <form id="clientInsert" class="insert__form" action="" method="post">
+                            <!-- client id and client name -->
+                            <div class="insert__form--input id name">
+                                <input type="hidden" name="id" id="clientId">
+                                <input type="text" name="clientName" id="clientName" placeholder="Client Name">
+                            </div>
+                            <!-- client contact person -->
+                            <div class="insert__form--input contact--person">
+                                <input type="text" name="contactPerson" id="contactPerson" placeholder="Client Contact Person">
+                            </div>
+                            <!-- client contact number -->
+                            <div class="insert__form--input contact--number">
+                                <input type="text" name="contactNumber" id="contactNumber" placeholder="Client Contact Number">
+                            </div>
+                            <!-- client email -->
+                            <div class="insert__form--input email">
+                                <input type="email" name="clientEmail" id="clientEmail" placeholder="Client Email">
+                            </div>
+                            <!-- client address -->
+                            <div class="insert__form--input address">
+                                <input type="text" name="clientAddress" id="clientAddress" placeholder="Client Address">
+                            </div>
+                            <div class="insert__form--submit client__submit">
+                                <input type="submit" class="submit" id="submit" value="Submit">
+                            </div>
+                        </form>
+                    </div>
+                    <!-- supplier show section -->
+                    <div class="show__table--container">
+                        <div class="heading__search--container">
+                            <h3>Client List</h3>
+                            <div class="search__container">
+                                <input type="text" name="supplier__search" id="supplierSearch" placeholder="Search ...">
+                            </div>
+                        </div>
+                        <table class="table client__table">
+                            <tr class="table__heading">
+                                <th class="table__heading--items client__sl">SL</th>
+                                <th class="table__heading--items client__name">Name</th>
+                                <th class="table__heading--items client__contact--person">Contact Person</th>
+                                <th class="table__heading--items client__contact--number">Contact Number</th>
+                                <th class="table__heading--items client__email">Email</th>
+                                <th class="table__heading--items client__address">Address</th>
+                                <th class="table__heading--items client__action action">Actions</th>
+                            </tr>
+                            <tr class="table--data">
+                                <td class="table--data--items 1">01</td>
+                                <td class="table--data--items 2">Master Technology</td>
+                                <td class="table--data--items 3">Subroto Kumar Saha</td>
+                                <td class="table--data--items 4">01958444382</td>
+                                <td class="table--data--items 5">master.technology902@gmail.com</td>
+                                <td class="table--data--items address">Computer City Center, Shop No- 244-246, Level-2 69-71, New Elephant Road, Dhaka-1205.</td>
+                                <td class="table--data--action">
+                                    <button class="update" id="update"><i class="fas fa-edit"></i></button>
+                                    <button class="delete" id="delete"><i class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                            <tr class="table--data">
+                                <td class="table--data--items 1">01</td>
+                                <td class="table--data--items 2">Master Technology</td>
+                                <td class="table--data--items 3">Subroto Kumar Saha</td>
+                                <td class="table--data--items 4">01958444382</td>
+                                <td class="table--data--items 5">master.technology902@gmail.com</td>
+                                <td class="table--data--items address">Computer City Center, Shop No- 244-246, Level-2 69-71, New Elephant Road, Dhaka-1205.</td>
+                                <td class="table--data--action">
+                                    <button class="update" id="update"><i class="fas fa-edit"></i></button>
+                                    <button class="delete" id="delete"><i class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                            <tr class="table--data">
+                                <td class="table--data--items 1">01</td>
+                                <td class="table--data--items 2">Master Technology</td>
+                                <td class="table--data--items 3">Subroto Kumar Saha</td>
+                                <td class="table--data--items 4">01958444382</td>
+                                <td class="table--data--items 5">master.technology902@gmail.com</td>
+                                <td class="table--data--items address">Computer City Center, Shop No- 244-246, Level-2 69-71, New Elephant Road, Dhaka-1205.</td>
+                                <td class="table--data--action">
+                                    <button class="update" id="update"><i class="fas fa-edit"></i></button>
+                                    <button class="delete" id="delete"><i class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                            <tr class="table--data">
+                                <td class="table--data--items 1">01</td>
+                                <td class="table--data--items 2">Master Technology</td>
+                                <td class="table--data--items 3">Subroto Kumar Saha</td>
+                                <td class="table--data--items 4">01958444382</td>
+                                <td class="table--data--items 5">master.technology902@gmail.com</td>
+                                <td class="table--data--items address">Computer City Center, Shop No- 244-246, Level-2 69-71, New Elephant Road, Dhaka-1205.</td>
+                                <td class="table--data--action">
+                                    <button class="update" id="update"><i class="fas fa-edit"></i></button>
+                                    <button class="delete" id="delete"><i class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                            <tr class="table--data">
+                                <td class="table--data--items 1">01</td>
+                                <td class="table--data--items 2">Master Technology</td>
+                                <td class="table--data--items 3">Subroto Kumar Saha</td>
+                                <td class="table--data--items 4">01958444382</td>
+                                <td class="table--data--items 5">master.technology902@gmail.com</td>
+                                <td class="table--data--items address">Computer City Center, Shop No- 244-246, Level-2 69-71, New Elephant Road, Dhaka-1205.</td>
+                                <td class="table--data--action">
+                                    <button class="update" id="update"><i class="fas fa-edit"></i></button>
+                                    <button class="delete" id="delete"><i class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                            <tr class="table--data">
+                                <td class="table--data--items 1">01</td>
+                                <td class="table--data--items 2">Master Technology</td>
+                                <td class="table--data--items 3">Subroto Kumar Saha</td>
+                                <td class="table--data--items 4">01958444382</td>
+                                <td class="table--data--items 5">master.technology902@gmail.com</td>
+                                <td class="table--data--items address">Computer City Center, Shop No- 244-246, Level-2 69-71, New Elephant Road, Dhaka-1205.</td>
+                                <td class="table--data--action">
+                                    <button class="update" id="update"><i class="fas fa-edit"></i></button>
+                                    <button class="delete" id="delete"><i class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                            <tr class="table--data">
+                                <td class="table--data--items 1">01</td>
+                                <td class="table--data--items 2">Master Technology</td>
+                                <td class="table--data--items 3">Subroto Kumar Saha</td>
+                                <td class="table--data--items 4">01958444382</td>
+                                <td class="table--data--items 5">master.technology902@gmail.com</td>
+                                <td class="table--data--items address">Computer City Center, Shop No- 244-246, Level-2 69-71, New Elephant Road, Dhaka-1205.</td>
+                                <td class="table--data--action">
+                                    <button class="update" id="update"><i class="fas fa-edit"></i></button>
+                                    <button class="delete" id="delete"><i class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                            <tr class="table--data">
+                                <td class="table--data--items 1">01</td>
+                                <td class="table--data--items 2">Master Technology</td>
+                                <td class="table--data--items 3">Subroto Kumar Saha</td>
+                                <td class="table--data--items 4">01958444382</td>
+                                <td class="table--data--items 5">master.technology902@gmail.com</td>
+                                <td class="table--data--items address">Computer City Center, Shop No- 244-246, Level-2 69-71, New Elephant Road, Dhaka-1205.</td>
+                                <td class="table--data--action">
+                                    <button class="update" id="update"><i class="fas fa-edit"></i></button>
+                                    <button class="delete" id="delete"><i class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                            <tr class="table--data">
+                                <td class="table--data--items 1">01</td>
+                                <td class="table--data--items 2">Master Technology</td>
+                                <td class="table--data--items 3">Subroto Kumar Saha</td>
+                                <td class="table--data--items 4">01958444382</td>
+                                <td class="table--data--items 5">master.technology902@gmail.com</td>
+                                <td class="table--data--items address">Computer City Center, Shop No- 244-246, Level-2 69-71, New Elephant Road, Dhaka-1205.</td>
+                                <td class="table--data--action">
+                                    <button class="update" id="update"><i class="fas fa-edit"></i></button>
+                                    <button class="delete" id="delete"><i class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                            <tr class="table--data">
+                                <td class="table--data--items 1">01</td>
+                                <td class="table--data--items 2">Master Technology</td>
+                                <td class="table--data--items 3">Subroto Kumar Saha</td>
+                                <td class="table--data--items 4">01958444382</td>
+                                <td class="table--data--items 5">master.technology902@gmail.com</td>
+                                <td class="table--data--items address">Computer City Center, Shop No- 244-246, Level-2 69-71, New Elephant Road, Dhaka-1205.</td>
+                                <td class="table--data--action">
+                                    <button class="update" id="update"><i class="fas fa-edit"></i></button>
+                                    <button class="delete" id="delete"><i class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                            <tr class="table--data">
+                                <td class="table--data--items 1">01</td>
+                                <td class="table--data--items 2">Master Technology</td>
+                                <td class="table--data--items 3">Subroto Kumar Saha</td>
+                                <td class="table--data--items 4">01958444382</td>
+                                <td class="table--data--items 5">master.technology902@gmail.com</td>
+                                <td class="table--data--items address">Computer City Center, Shop No- 244-246, Level-2 69-71, New Elephant Road, Dhaka-1205.</td>
+                                <td class="table--data--action">
+                                    <button class="update" id="update"><i class="fas fa-edit"></i></button>
+                                    <button class="delete" id="delete"><i class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                            <tr class="table--data">
+                                <td class="table--data--items 1">01</td>
+                                <td class="table--data--items 2">Master Technology</td>
+                                <td class="table--data--items 3">Subroto Kumar Saha</td>
+                                <td class="table--data--items 4">01958444382</td>
+                                <td class="table--data--items 5">master.technology902@gmail.com</td>
+                                <td class="table--data--items address">Computer City Center, Shop No- 244-246, Level-2 69-71, New Elephant Road, Dhaka-1205.</td>
+                                <td class="table--data--action">
+                                    <button class="update" id="update"><i class="fas fa-edit"></i></button>
+                                    <button class="delete" id="delete"><i class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                            <tr class="table--data">
+                                <td class="table--data--items 1">01</td>
+                                <td class="table--data--items 2">Master Technology</td>
+                                <td class="table--data--items 3">Subroto Kumar Saha</td>
+                                <td class="table--data--items 4">01958444382</td>
+                                <td class="table--data--items 5">master.technology902@gmail.com</td>
+                                <td class="table--data--items address">Computer City Center, Shop No- 244-246, Level-2 69-71, New Elephant Road, Dhaka-1205.</td>
+                                <td class="table--data--action">
+                                    <button class="update" id="update"><i class="fas fa-edit"></i></button>
+                                    <button class="delete" id="delete"><i class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <!-- JavaScript local file -->
+    <script src="../js/index.js"></script>
+</body>
+</html>
