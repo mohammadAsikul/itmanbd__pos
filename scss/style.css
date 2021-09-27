@@ -87,6 +87,14 @@ body {
   background-color: #1f6f9e;
 }
 
+.header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 998;
+}
+
 .header .header__container {
   height: 50px;
   padding-left: 230px;
@@ -241,6 +249,11 @@ body {
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
   overflow-x: hidden;
+  margin-top: 50px;
+}
+
+.main .container {
+  position: relative;
 }
 
 .main .container .box__container {
@@ -542,6 +555,101 @@ body {
   width: 8%;
 }
 
+.main .container .insert__show--container .insert__show--container--heading {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.main .container .insert__show--container .insert__show--container--heading .btn {
+  width: 120px;
+  height: 35px;
+  background-color: #0F2D4F;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  color: #fff;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.main .container .insert__show--container .insert__show--container--heading .btn:hover {
+  background-color: #1c5391;
+}
+
+.main .container .insert__show--container .table--container table tbody tr .btn--container {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.main .container .insert__show--container .table--container table tbody tr .btn--container .actionDropdown {
+  width: 80px;
+  background-color: #17A2B8;
+  border: none;
+  padding: 5px 0;
+  border-radius: 8px;
+  color: #FFFFFF;
+  cursor: pointer;
+}
+
+.main .container .insert__show--container .table--container table tbody tr .btn--container .dropdown {
+  background-color: #343A40;
+  width: 80%;
+  margin: 0 10%;
+  padding: 10px;
+  border-radius: 8px;
+  position: absolute;
+  top: 35px;
+  left: 0;
+  display: none;
+  visibility: hidden;
+  z-index: 997;
+}
+
+.main .container .insert__show--container .table--container table tbody tr .btn--container .dropdown li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.main .container .insert__show--container .table--container table tbody tr .btn--container .dropdown li .btn {
+  width: 80px;
+  background-color: #007BFF;
+  border: none;
+  padding: 5px 0;
+  margin: 4px 0;
+  border-radius: 8px;
+  color: #FFFFFF;
+  cursor: pointer;
+}
+
+.main .container .insert__show--container .table--container table tbody tr .btn--container .dropdown li .view {
+  background-color: #6C757D;
+}
+
+.main .container .insert__show--container .table--container table tbody tr .btn--container .dropdown li .edit {
+  background-color: #28A745;
+}
+
+.main .container .insert__show--container .table--container table tbody tr .btn--container .dropdown li .delete {
+  background-color: #DC3545;
+}
+
+.main .container .insert__show--container .table--container table tbody tr .btn--container .dropdown.active {
+  display: block;
+  visibility: visible;
+}
+
 .main .container .client__insert__show--container {
   -ms-grid-rows: 100px 1fr;
       grid-template-rows: 100px 1fr;
@@ -571,14 +679,396 @@ body {
       grid-template-columns: 1fr !important;
 }
 
-.main .container .purchase__req__insert__show--container {
-  -ms-grid-rows: 160px;
-      grid-template-rows: 160px;
+.main .container .purchase__order__insert__show--container {
+  -ms-grid-rows: 50px 1fr !important;
+      grid-template-rows: 50px 1fr !important;
 }
 
 .main .container .purchase__insert__show--container {
   -ms-grid-rows: 200px;
       grid-template-rows: 200px;
+}
+
+.main .container .po__entry--container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 30px 1fr;
+      grid-template-rows: 30px 1fr;
+  grid-gap: 10px 0;
+}
+
+.main .container .po__entry--container .po__heading {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 1.1rem;
+}
+
+.main .container .po__entry--container .po__heading .po__list {
+  color: #6C757D;
+}
+
+.main .container .po__entry--container .po__heading .arrow {
+  padding: 0 8px;
+}
+
+.main .container .po__entry--container .po__form fieldset {
+  background-color: #F8F9FA;
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.main .container .po__entry--container .po__form fieldset .po__id__btn label,
+.main .container .po__entry--container .po__form fieldset .po__date__time label,
+.main .container .po__entry--container .po__form fieldset .purchase__date__time label,
+.main .container .po__entry--container .po__form fieldset .po__supplier label {
+  display: inline-block;
+  width: 100px;
+}
+
+.main .container .po__entry--container .po__form fieldset .po__id__btn input,
+.main .container .po__entry--container .po__form fieldset .po__date__time input,
+.main .container .po__entry--container .po__form fieldset .purchase__date__time input,
+.main .container .po__entry--container .po__form fieldset .po__supplier input {
+  width: 180px;
+  height: 28px;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.main .container .po__entry--container .po__form fieldset .po__id__btn input:focus,
+.main .container .po__entry--container .po__form fieldset .po__date__time input:focus,
+.main .container .po__entry--container .po__form fieldset .purchase__date__time input:focus,
+.main .container .po__entry--container .po__form fieldset .po__supplier input:focus {
+  outline: 1px solid #28A745;
+}
+
+.main .container .po__entry--container .po__form fieldset .po__id__btn select,
+.main .container .po__entry--container .po__form fieldset .po__date__time select,
+.main .container .po__entry--container .po__form fieldset .purchase__date__time select,
+.main .container .po__entry--container .po__form fieldset .po__supplier select {
+  width: 220px;
+  height: 28px;
+}
+
+.main .container .po__entry--container .po__form fieldset .po__id__btn select:focus,
+.main .container .po__entry--container .po__form fieldset .po__date__time select:focus,
+.main .container .po__entry--container .po__form fieldset .purchase__date__time select:focus,
+.main .container .po__entry--container .po__form fieldset .po__supplier select:focus {
+  outline: 1px solid #28A745;
+}
+
+.main .container .po__entry--container .po__form fieldset .po__id__btn .btn,
+.main .container .po__entry--container .po__form fieldset .po__date__time .btn,
+.main .container .po__entry--container .po__form fieldset .purchase__date__time .btn,
+.main .container .po__entry--container .po__form fieldset .po__supplier .btn {
+  width: 40px;
+  height: 28px;
+  border: none;
+  background-color: #007BFF;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  color: #fff;
+}
+
+.main .container .po__entry--container .po__form fieldset .po__date__time,
+.main .container .po__entry--container .po__form fieldset .purchase__date__time,
+.main .container .po__entry--container .po__form fieldset .po__supplier {
+  margin: 10px 0;
+}
+
+.main .container .po__entry--container .po__form fieldset table, .main .container .po__entry--container .po__form fieldset tbody, .main .container .po__entry--container .po__form fieldset tr, .main .container .po__entry--container .po__form fieldset td {
+  border-collapse: collapse;
+}
+
+.main .container .po__entry--container .po__form fieldset .po__item--table {
+  text-align: center;
+}
+
+.main .container .po__entry--container .po__form fieldset .po__item--table input {
+  border: 1px solid #17A2B8;
+  outline: none;
+  padding: 0 5px;
+}
+
+.main .container .po__entry--container .po__form fieldset .po__item--table .po__items {
+  width: 100%;
+}
+
+.main .container .po__entry--container .po__form fieldset .po__item--table .po__items thead {
+  height: 40px;
+}
+
+.main .container .po__entry--container .po__form fieldset .po__item--table .po__items thead tr {
+  background-color: #28A745;
+}
+
+.main .container .po__entry--container .po__form fieldset .po__item--table .po__items thead tr th {
+  border: 1px solid #343A40;
+}
+
+.main .container .po__entry--container .po__form fieldset .po__item--table .po__items tbody tr {
+  height: 30px;
+}
+
+.main .container .po__entry--container .po__form fieldset .po__item--table .po__items tbody tr td {
+  border: 1px solid #343A40;
+}
+
+.main .container .po__entry--container .po__form fieldset .po__item--table .po__items tbody tr td input {
+  height: 30px;
+}
+
+.main .container .po__entry--container .po__form fieldset .po__item--table .po__items tbody tr td select {
+  height: 30px;
+}
+
+.main .container .po__entry--container .po__form fieldset .po__item--table .po__items tbody tr .po__remove {
+  width: 5%;
+}
+
+.main .container .po__entry--container .po__form fieldset .po__item--table .po__items tbody tr .po__remove button {
+  font-size: 1rem;
+  color: #DC3545;
+  border: none;
+  cursor: pointer;
+}
+
+.main .container .po__entry--container .po__form fieldset .po__item--table .po__items tbody tr .po__items {
+  width: 25%;
+}
+
+.main .container .po__entry--container .po__form fieldset .po__item--table .po__items tbody tr .po__items input {
+  width: 100%;
+}
+
+.main .container .po__entry--container .po__form fieldset .po__item--table .po__items tbody tr .po__description {
+  width: 20%;
+}
+
+.main .container .po__entry--container .po__form fieldset .po__item--table .po__items tbody tr .po__description input {
+  width: 100%;
+}
+
+.main .container .po__entry--container .po__form fieldset .po__item--table .po__items tbody tr .po__unit {
+  width: 10%;
+}
+
+.main .container .po__entry--container .po__form fieldset .po__item--table .po__items tbody tr .po__unit select {
+  width: 100%;
+}
+
+.main .container .po__entry--container .po__form fieldset .po__item--table .po__items tbody tr .po__qty {
+  width: 5%;
+}
+
+.main .container .po__entry--container .po__form fieldset .po__item--table .po__items tbody tr .po__qty input {
+  width: 100%;
+}
+
+.main .container .po__entry--container .po__form fieldset .po__item--table .po__items tbody tr .po__price {
+  width: 15%;
+}
+
+.main .container .po__entry--container .po__form fieldset .po__item--table .po__items tbody tr .po__price input {
+  width: 100%;
+}
+
+.main .container .po__entry--container .po__form fieldset .po__item--table .po__items tbody tr .po__total {
+  width: 20%;
+}
+
+.main .container .po__entry--container .po__form fieldset .po__item--table .po__items tbody .add__subtotal td .po__subtotal--content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.main .container .po__entry--container .po__form fieldset .po__item--table .po__items tbody .add__subtotal td .po__subtotal--content button {
+  border: none;
+  background: #007BFF;
+  padding: 4px 5px;
+  border-radius: 4px;
+  margin-right: 10px;
+  cursor: pointer;
+  color: #F8F9FA;
+}
+
+.main .container .po__entry--container .po__form fieldset .po__item--table .po__items tbody .add__subtotal td .po__subtotal--content p {
+  padding-right: 5px;
+}
+
+.main .container .po__entry--container .po__form fieldset .po__item--table .po__items tbody .add__discount td .po__discount--content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.main .container .po__entry--container .po__form fieldset .po__item--table .po__items tbody .add__discount td .po__discount--content p {
+  padding-right: 5px;
+}
+
+.main .container .po__entry--container .po__form fieldset .po__item--table .po__items tbody .add__discount td .po__discount--content input {
+  width: 100px;
+}
+
+.main .container .po__entry--container .po__form fieldset .po__item--table .po__items tbody .show__total td .po__total--content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.main .container .po__entry--container .po__form fieldset .po__item--table .po__items tbody .show__total td .po__total--content p {
+  padding-right: 5px;
+}
+
+.main .container .po__entry--container .po__form fieldset .po__item--table .po__items tbody .add__comment__status--content td .po__comment__status--container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  grid-gap: 10px;
+  padding: 10px;
+}
+
+.main .container .po__entry--container .po__form fieldset .po__item--table .po__items tbody .add__comment__status--content td .po__comment__status--container .po__comment p,
+.main .container .po__entry--container .po__form fieldset .po__item--table .po__items tbody .add__comment__status--content td .po__comment__status--container .po__status p {
+  padding: 5px 0;
+  font-size: 1.1rem;
+}
+
+.main .container .po__entry--container .po__form fieldset .po__item--table .po__items tbody .add__comment__status--content td .po__comment__status--container .po__comment textarea,
+.main .container .po__entry--container .po__form fieldset .po__item--table .po__items tbody .add__comment__status--content td .po__comment__status--container .po__comment select,
+.main .container .po__entry--container .po__form fieldset .po__item--table .po__items tbody .add__comment__status--content td .po__comment__status--container .po__status textarea,
+.main .container .po__entry--container .po__form fieldset .po__item--table .po__items tbody .add__comment__status--content td .po__comment__status--container .po__status select {
+  width: 100%;
+}
+
+.main .container .po__entry--container .po__form fieldset .po__item--table .po__items tbody .add__comment__status--content td .po__comment__status--container .po__comment textarea {
+  height: 120px;
+}
+
+.main .container .po__entry--container .po__form fieldset .po__item--table .po__items tbody .add__comment__status--content td .po__comment__status--container .po__status select {
+  outline: none;
+}
+
+.main .container .po__entry--container .po__form fieldset .po__item--table .po__items tbody .submit--content td .po__submit__cancel--container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 10px;
+}
+
+.main .container .po__entry--container .po__form fieldset .po__item--table .po__items tbody .submit--content td .po__submit__cancel--container .btn {
+  width: 80px;
+  height: 40px;
+  border: none;
+  border-radius: 4px;
+  color: #F8F9FA;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.main .container .po__entry--container .po__form fieldset .po__item--table .po__items tbody .submit--content td .po__submit__cancel--container .save__btn {
+  background-color: #007BFF;
+  margin-right: 10px;
+}
+
+.main .container .po__entry--container .po__form fieldset .po__item--table .po__items tbody .submit--content td .po__submit__cancel--container .cancel__btn {
+  background-color: #FFC107;
+}
+
+.main .container .po__entry--container .po__form fieldset .purchase__item--table .purchase__items tbody tr {
+  width: 100%;
+}
+
+.main .container .po__entry--container .po__form fieldset .purchase__item--table .purchase__items tbody tr td input {
+  width: 100%;
+}
+
+.main .container .po__entry--container .po__form fieldset .purchase__item--table .purchase__items tbody tr .rm {
+  width: 5%;
+}
+
+.main .container .po__entry--container .po__form fieldset .purchase__item--table .purchase__items tbody tr .rm button {
+  font-size: 1rem;
+  color: #DC3545;
+  border: none;
+  cursor: pointer;
+}
+
+.main .container .po__entry--container .po__form fieldset .purchase__item--table .purchase__items tbody tr .items {
+  width: 20%;
+}
+
+.main .container .po__entry--container .po__form fieldset .purchase__item--table .purchase__items tbody tr .description {
+  width: 20%;
+}
+
+.main .container .po__entry--container .po__form fieldset .purchase__item--table .purchase__items tbody tr .barcode {
+  width: 10%;
+}
+
+.main .container .po__entry--container .po__form fieldset .purchase__item--table .purchase__items tbody tr .warranty {
+  width: 5%;
+}
+
+.main .container .po__entry--container .po__form fieldset .purchase__item--table .purchase__items tbody tr .unit {
+  width: 5%;
+}
+
+.main .container .po__entry--container .po__form fieldset .purchase__item--table .purchase__items tbody tr .qty {
+  width: 5%;
+}
+
+.main .container .po__entry--container .po__form fieldset .purchase__item--table .purchase__items tbody tr .purchase__price {
+  width: 10%;
+}
+
+.main .container .po__entry--container .po__form fieldset .purchase__item--table .purchase__items tbody tr .selling__price {
+  width: 10%;
+}
+
+.main .container .po__entry--container .po__form fieldset .purchase__item--table .purchase__items tbody tr .total {
+  width: 10%;
+}
+
+.main .container .purchase__invoice__insert__show--container {
+  -ms-grid-rows: 40px 1fr;
+      grid-template-rows: 40px 1fr;
+}
+
+.main .container .purchase__invoice__insert__show--container .purchase__invoice--table table {
+  width: 100%;
+  font-size: 11px;
 }
 
 .main.toggled__margin--left {

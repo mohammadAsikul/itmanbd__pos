@@ -1,4 +1,9 @@
 .header{
+    width: 100%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 998;
     .header__container{
         height: 50px;
         padding-left: 230px;

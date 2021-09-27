@@ -26,16 +26,16 @@
                     <h1>ITMANBD</h1>
                     <!--  php code  -->
                     <?php
-                        include './pages/config.php';
+                        include './includes/config.php';
                         if (isset($_POST['submit'])){
                             $pos_username = mysqli_real_escape_string($conn, $_POST['username']);
                             $pos_password = mysqli_real_escape_string($conn, md5($_POST['password']));
                             $sql_pos_login = "SELECT * FROM users WHERE username = '{$pos_username}' AND password = '{$pos_password}'";
                             $query_pos_login = mysqli_query($conn, $sql_pos_login) or die("pos_login page query problem.");
                             if (mysqli_num_rows($query_pos_login) > 0) {
-                            header("Location: http://localhost/itmanbd_pos/pages/dashboard.php");
+                            header("Location: http://localhost/ipos/dashboard/");
                             }else{
-//                            header("Location: http://localhost/itmanbd_pos/");
+
                             }
                         }
                     ?>
@@ -60,6 +60,9 @@
                             <input type="submit" name="submit" class="submit_btn btn" id="submit" value="Login">
                         </div>
                     </form>
+                    <div class="errorMsg" style="margin: 20px 0; font-size: 1.2rem;">
+
+                    </div>
                 </div>
             </div>
         </div>
