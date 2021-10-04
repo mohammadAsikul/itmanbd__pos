@@ -70,7 +70,7 @@
                         </span>
                         <!-- content -->
                         <span class="menu__contents">
-                            Dashboard                        
+                            Dashboard
                         </span>
                     </a>
                     <!-- dropdown menu -->
@@ -87,7 +87,7 @@
                         </span>
                         <!-- content -->
                         <span class="menu__contents">
-                            System                        
+                            System
                         </span>
                     </a>
                     <!-- dropdown menu -->
@@ -104,7 +104,7 @@
                         </span>
                         <!-- content -->
                         <span class="menu__contents">
-                            Setup                        
+                            Setup
                         </span>
                     </a>
                     <!-- dropdown menu -->
@@ -136,7 +136,7 @@
                         </span>
                         <!-- content -->
                         <span class="menu__contents">
-                            Stock                        
+                            Stock
                         </span>
                     </a>
                     <!-- dropdown menu -->
@@ -153,7 +153,7 @@
                         </span>
                         <!-- content -->
                         <span class="menu__contents">
-                            Purchase                        
+                            Purchase
                         </span>
                     </a>
                     <!-- dropdown menu -->
@@ -179,7 +179,7 @@
                         </span>
                         <!-- content -->
                         <span class="menu__contents">
-                            Sales                        
+                            Sales
                         </span>
                     </a>
                     <!-- dropdown menu -->
@@ -202,11 +202,11 @@
                     <a href="#" class="links link7">
                         <span class="menu__icons">
                             <i class="fas fa-calculator"></i>
-                        </span>  
+                        </span>
                         <!-- content -->
                         <span class="menu__contents">
-                            Accounts               
-                        </span>  
+                            Accounts
+                        </span>
                     </a>
                     <!-- dropdown menu -->
                     <ul class="drop__menu">
@@ -225,11 +225,11 @@
                     <a href="#" class="links link7">
                         <span class="menu__icons">
                             <i class="fas fa-folder-open"></i>
-                        </span>  
+                        </span>
                         <!-- content -->
                         <span class="menu__contents">
-                            Reports                        
-                        </span>  
+                            Reports
+                        </span>
                     </a>
                     <!-- dropdown menu -->
                     <ul class="drop__menu">
@@ -271,18 +271,18 @@
                         <span class="arrow"><i class="fas fa-chevron-right"></i></span>
                         <p>Purchase Order Entry</p>
                     </div>
-                    <form action="" method="post" id="poEntry" class="po__form">
+                    <form id="poEntry" class="po__form">
                         <fieldset>
                             <legend>Purchase Order Entry:</legend>
                             <!-- datetime -->
                             <div class="po__date__time">
                                 <label for="po__date">PO Date</label>
-                                <input type="text" name="poDate[]" id="poDate">
+                                <input type="date" name="poDate[]" id="poDate">
                             </div>
                             <!-- po id -->
                             <div class="po__id__btn">
                                 <label for="po__id">PO Id</label>
-                                <input type="text" name="poId[]" id="poId">
+                                <input type="text" name="poId[]" id="poId" value="PO-001-">
                                 <button id="poSearch" class="btn po__search"><i class='bx bx-search-alt'></i></button>
                             </div>
                             <!-- supplier -->
@@ -290,8 +290,8 @@
                                 <label for="po__supplier">Supplier</label>
                                 <select name="poSupplier[]" id="poSupplier">
                                     <option value="" selected disabled>Select Supplier</option>
-                                    <option value="">Supplier One</option>
-                                    <option value="">Supplier Two</option>
+                                    <option value="1">Supplier One</option>
+                                    <option value="2">Supplier Two</option>
                                 </select>
                             </div>
                             <!-- po item add list -->
@@ -308,25 +308,28 @@
                                             <th>Total</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
-                                        <tr class="tr" id="tableRow">
+                                    <tbody class="po__tbody">
+                                        <!-- <tr class="tr" id="tableRow"> -->
+                                        <tr>
                                             <td class="po__remove">
-                                                <button id="poRemoveItem"><i class="fas fa-trash"></i></button>
+                                                <button class="remove" id="poRemoveItem"><i class="fas fa-trash"></i></button>
                                             </td>
-                                            <td class="po__items"><input type="text" name="poItem[]" id="poItem" placeholder=""></td>
-                                            <td class="po__description"><input type="text" name="poDescription[]" id="poDescription" placeholder="PO Description"></td>
+                                            <td class="po__items" contenteditable="true"></td>
+                                            <td class="po__description" contenteditable="true"></td>
                                             <td class="po__unit">
                                                 <select name="poUnit[]" id="poUnit">
                                                     <option value="">Select Unit</option>
-                                                    <option value="">Pcs</option>
-                                                    <option value="">Box</option>
-                                                    <option value="">Meter</option>
+                                                    <option value="pcs">Pcs</option>
+                                                    <option value="box">Box</option>
+                                                    <option value="meter">Meter</option>
                                                 </select>
                                             </td>
-                                            <td class="po__qty"><input type="text" name="poQty[]" id="poQty" placeholder="PO Qty"></td>
-                                            <td class="po__price"><input type="text" name="poPrice[]" id="poPrice" placeholder="PO Price"></td>
+                                            <td class="po__qty" contenteditable="true"></td>
+                                            <td class="po__price" contenteditable="true"></td>
                                             <td class="po__total"><span id="poTotal" class="poTotal">0</span></td>
                                         </tr>
+                                    </tbody>
+                                    <tfoot>
                                         <!-- subtotal -->
                                         <tr class="add__subtotal">
                                             <td colspan="6">
@@ -381,7 +384,7 @@
                                                 </div>
                                             </td>
                                         </tr>
-                                    </tbody>
+                                    </tfoot>
                                 </table>
                             </div>
                         </fieldset>

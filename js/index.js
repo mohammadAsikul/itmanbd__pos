@@ -1,6 +1,8 @@
 $(document).ready(function () {
+    // webpage basic functionalitys
+
     // toggle functionlity
-    $("#toggle_btn").click(function (e) { 
+    $("#toggle_btn").click(function (e) {
         e.preventDefault();
         $("#menu").toggleClass("toggled");
         // menu content display none
@@ -34,14 +36,72 @@ $(document).ready(function () {
             dropdown.classList.remove("drop__menu--toggle");
         })
     };
-    // click dashboar remove all sub menu
+    // click dashboard remove all sub menu
     $(".link1").click(function (e) {
         $(".drop__menu").each(function (links) {
             $(this).removeClass("drop__menu--toggle");
          })
     });
+    // setup directory
+        // hide all error msg span element
+        $(".error--msg").each(function () {
+            $(this).hide();
+        })
+        // supplier send data to the database
+        $("#supplierSave").on('click', function (e) {
+            console.log(window.location.pathname);
+            // window.location.href = "../purchase/purchase_order_entry.php";
+            let supName = $("#supplierName").val();
+            let supPerson = $("#contactPerson").val();
+            let supNumber = $("#contactNumber").val();
+            let supEmail = $("#email").val();
+            let supWhatsapp = $("#whatsapp").val();
+            let supAddress = $("#address").val();
+            let supStatus = $("#supplierStatus").val();
+            
+            // start ajax for upload data
+            $.ajax({
+                url: "action.php",
+                type: "POST",
+                data: {supSet: 1, supName:supName, supPerson:supPerson, supNumber:supNumber, supEmail:supEmail, supWhatsapp:supWhatsapp, supAddress:supAddress, supStatus:supStatus},
+                success: function (data) {
+                    // console.log(data);
+                    if (data == "supNameError") {
+                        $("#errorSupplierName").removeAttr('style');
+                        setTimeout(function () {
+                            $("#errorSupplierName").attr('style', 'display: none;');
+                        },3000);
+                    } else if (data == "supNumberError") {
+                        $("#errorContactNumber").removeAttr('style');
+                        setTimeout(function () {
+                            $("#errorContactNumber").attr('style', 'display: none;');
+                        },3000);
+                    } else if (data == "supEmailError") {
+                        $("#errorEmail").removeAttr('style');
+                        setTimeout(function () {
+                            $("#errorEmail").attr('style', 'display: none;');
+                        },3000);
+                    } else if (data == "supWhatsappError") {
+                        $("#errorWhatsapp").removeAttr('style');
+                        setTimeout(function () {
+                            $("#errorWhatsapp").attr('style', 'display: none;');
+                        },3000);
+                    } else if (data == "supAddressError") {
+                        $("#errorAddress").removeAttr('style');
+                        setTimeout(function () {
+                            $("#errorAddress").attr('style', 'display: none;');
+                        },3000);
+                    } else if (data == "supInserted") {
+                        setTimeout(function () {
+                            $("#supplierSave").attr('disabled');
+                        }, 3000)
+                        supInputBoxEmpty();
+                    }
+                }
+            })
+        })
     // datatables for the purchase order table
-    $('#poTable').DataTable();
+    $('#example').DataTable();
     // action dropdown section purchase order
     let actionDropdown = document.querySelectorAll("#actionDropdown");
     let dropDown = document.querySelectorAll(".dropdown");
@@ -61,15 +121,118 @@ $(document).ready(function () {
         dropDown.forEach(function (item) {
             console.log(item.classList.remove("active"));
         })
-    }
-    // purchase order dynamic item create
-    $("#addRow").click(function (e) {
-        e.preventDefault();
-        $("#tableRow").after('<tr class="tr"> <td class="po__remove"> <button id="poRemoveItem"><i class="fas fa-trash"></i></button> </td> <td class="po__items"><input type="text" name="poItem" id="poItem" placeholder="PO Item"></td> <td class="po__description"><input type="text" name="poDescription" id="poDescription" placeholder="PO Description"></td> <td class="po__unit"> <select name="poUnit" id="poUnit"> <option value="">Select Unit</option> <option value="">Pcs</option> <option value="">Box</option> <option value="">Meter</option> </select> </td> <td class="po__qty"><input type="text" name="poQty" id="poQty" placeholder="PO Qty"></td> <td class="po__price"><input type="text" name="poPrice" id="poPrice" placeholder="PO Price"></td> <td class="po__total"><span id="poTotal" class="poTotal">0</span></td> </tr>');
+    };
+    // supplier data insert
+    let supp_count = 0;
+    $("#supplierDialog").dialog({
+        autoOpen: false,
+        width: 400,
+     });
+     $(".ui-dialog-titlebar-close").text("X");
+     $(".ui-dialog-titlebar-close").css("width", "30px");
+     $(".ui-dialog-titlebar-close").css("height", "30px");
+    $("#addSupplier").click(function() {
+        $("#supplierDialog").dialog('option', 'title', 'Add Supplier');
+        $("#supplierName").val('');
+        $("#contactPerson").val('');
+        $("#contactNumber").val('');
+        $("#email").val('');
+        $("#whatsapp").val('');
+        $("#address").val('');
+        // $("#errorSupplierName").text('');
+        // $("#errorContactPerson").text('');
+        // $("#errorContactNumber").text('');
+        // $("#errorEmail").text('');
+        // $("#errorWhatsapp").text('');
+        // $("#errorAddress").text('');
+        $("#supplierSave").text('Save');
+        $("#supplierDialog").dialog('open');
     });
-    // purchase dynamic item create
+    function supInputBoxEmpty () {
+        $("#errorSupplierName").text('');
+        $("#errorContactPerson").text('');
+        $("#errorContactNumber").text('');
+        $("#errorEmail").text('');
+        $("#errorWhatsapp").text('');
+        $("#errorAddress").text('');
+    }
+    // po entry using table data
+    let count = 1;
     $("#addRow").click(function (e) {
         e.preventDefault();
-        $("#tableRowP").after('<tr class="tr" id="tableRowP"> <td class="purchase__remove rm"> <button id="purchaseRemoveItem"><i class="fas fa-trash"></i></button> </td> <td class="purchase__items items"><input type="text" name="purchaseItem" id="purchaseItem" placeholder=""></td> <td class="purchase__description description"><input type="text" name="purchaseDescription" id="purchaseDescription" placeholder=""></td> <td class="purchase__barcode barcode"><input type="text" name="purchaseBarcode" id="purchaseBarcode" placeholder=""></td> <td class="purchase__warranty warranty"><input type="text" name="purchaseWarranty" id="purchaseWarranty" placeholder=""></td> <td class="purchase__unit unit"> <select name="purchaseUnit" id="purchaseUnit"> <option value="">Select Unit</option> <option value="">Pcs</option> <option value="">Box</option> <option value="">Meter</option> </select> </td> <td class="purchase__qty qty"><input type="text" name="purchaseQty" id="purchaseQty" placeholder=""></td> <td class="purchase__p--price purchase__price"><input type="text" name="purchaseP" id="purchaseP" placeholder=""> </td> <td class="purchase__s--price selling__price"> <input type="text" name="sellingP" id="sellingP" placeholder=""></td> <td class="purchase__total total"><span id="poTotal" class="poTotal">0</span></td> </tr>')
+        count = count + 1;
+        let html_code = "<tr id='row"+count+"'>";
+
+            html_code += "<td class='po__remove'> <button class='remove' id='poRemoveItem' data-row='row"+count+"'><i class='fas fa-trash'></i></button></td>";
+            html_code += "<td class='po__items' contenteditable='true'></td>";
+            html_code += "<td class='po__description' contenteditable='true'></td>";
+            html_code += "<td class='po__unit'> <select name='poUnit[]' id='poUnit'> <option value=''>Select Unit</option> <option value='1'>Pcs</option> <option value='2'>Box</option> <option value='3'>Meter</option> </select> </td>";
+            html_code += "<td class='po__qty' contenteditable='true'></td>";
+            html_code += "<td class='po__price' contenteditable='true'></td>";
+            html_code += "<td class='po__total'><span id='poTotal' class='poTotal' data-total='total"+count+"'>0</span></td>";
+        html_code += "</tr>";
+        $(".po__tbody").append(html_code);
+    });
+    // remove po rows
+    $(document).on("click", ".remove", function () {
+        let deleteRow = $(this).data("row");
+        $("#" + deleteRow).remove();
+    });
+    // multiplecation
+    // $(".po__price").keyup(function () {
+    //   let qty = $(".po__qty").text();
+    //   let price = $(".po__price").text();
+    //   $(".poTotal").text((qty * price));
+    // })
+    $(".po__price").on('keyup', function () { 
+        $(".po__qty").each(function () {
+            let qty = $(this).text();
+            let price = $(".po__price").each(function () {
+                $(this).text();
+            });
+            $(".poTotal").text((qty * price));
+        });
+    })
+    // before insert data to database
+    $("#poSave").click(function () {
+        let poDate = $("#poDate").val();
+        let poTime = $("#poTime").val();
+        let poSave = 1;
+        let poId = $("#poId").val();
+        let poSupplier = $("#poSupplier").val();
+        let poItem = [];
+        let poDesc = [];
+        let poUnit = [];
+        let poQty = [];
+        let poPrice = [];
+        // let poTotal = [];
+        $(".po__items").each(function() {
+            poItem.push($(this).text());
+        });
+        $(".po__description").each(function () {
+            poDesc.push($(this).text());
+        });
+        $(".po__unit").each(function () {
+            poUnit.push($(this).val());
+        });
+        $(".po__qty").each(function () {
+            poQty.push($(this).text());
+        });
+        $(".po__price").each(function () {
+            poPrice.push($(this).text());
+        });
+        // ajax to insert data to the mysqli throw php
+        $.$.ajax({
+            url: "../purchase/insert.php",
+            type: "POST",
+            data: {poDate:poDate, poTime:poTime, poSave:poSave, poId:poId, poSupplier:poSupplier, poItem:poItem, poDesc:poDesc, poUnit:poUnit, poQty:poQty, poPrice:poPrice},
+            success: function (data) {
+                if(data == 1) {
+                    console.log("data inserted successfully.");
+                }else{
+                    console.log("Data Insert Problems.");
+                }
+            }
+        });
     })
 });

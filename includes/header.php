@@ -1,10 +1,29 @@
+<?php
+  session_start();
+  include '../includes/config.php';
+  $page = basename($_SERVER['PHP_SELF']);
+  switch($page) {
+    case "index.php" :
+      $title_name = 'Dashboard';
+      break;
+    case "supplier.php" :
+      $title_name = 'Supplier';
+      break;
+    case "client.php" :
+      $title_name = 'Client';
+      break;
+    case 'purchase_order_entry.php':
+        $title_name = 'Purchase Order';
+        break;
+  }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Purchase Order Entry</title>
+    <title><?php echo $title_name; ?></title>
     <!-- datatables cdn -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/css/jquery.dataTables.min.css" integrity="sha512-1k7mWiTNoyx2XtmI96o+hdjP8nn0f3Z2N4oF/9ZZRgijyV4omsKOXEnqL1gKQNPy2MTSP9rIEWGcH/CInulptA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- favicon -->
@@ -23,6 +42,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/js/jquery.dataTables.min.js" integrity="sha512-BkpSL20WETFylMrcirBahHfSnY++H2O1W+UnEEO4yNIl+jI2+zowyoGJpbtk6bx97fBXf++WJHSSK2MV4ghPcg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!-- boxicons js -->
     <script src="https://unpkg.com/boxicons@2.0.9/dist/boxicons.js"></script>
+    <!-- jQuery UI cdn -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" integrity="sha512-uto9mlQzrs59VwILcLiRYeLKPPbS/bT71da/OEBYEwcdNUk8jYIy+D176RYoop1Da+f9mvkYrmj5MCLZWEtQuA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 <body>
     <div class="wrapper">
@@ -57,14 +78,14 @@
             </div>
             <!-- logo section -->
             <div class="logo company__logo">
-                <a href="#">
+                <a href="../dashboard/">
                     <img src="../assets/logo/logo.png" alt="company__logo">
                 </a>
             </div>
             <!-- menu__ul -->
             <ul class="menu__ul">
                 <li>
-                    <a href="#" class="links link1">
+                    <a href="../dashboard/" class="links link1">
                         <span class="menu__icons">
                             <i class="fas fa-tachometer-alt"></i>
                         </span>
@@ -110,40 +131,23 @@
                     <!-- dropdown menu -->
                     <ul class="drop__menu">
                         <li class="drop__menu__li">
-                            <a href="supplier.html" class="drop__menu__li--links">Supplier</a>
+                            <a href="../setup/supplier.php" class="drop__menu__li--links">Supplier</a>
                         </li>
                         <li class="drop__menu__li">
-                            <a href="clients.html" class="drop__menu__li--links">Clients</a>
+                            <a href="../setup/client.php" class="drop__menu__li--links">Clients</a>
                         </li>
                         <li class="drop__menu__li">
-                            <a href="category.html" class="drop__menu__li--links">Category</a>
+                            <a href="../setup/category.php" class="drop__menu__li--links">Category</a>
                         </li>
                         <li class="drop__menu__li">
-                            <a href="sub_category.html" class="drop__menu__li--links">Sub_Category</a>
+                            <a href="../setup/sub_category.php" class="drop__menu__li--links">Sub_Category</a>
                         </li>
                         <li class="drop__menu__li">
-                            <a href="brands.html" class="drop__menu__li--links">Brands</a>
+                            <a href="../setup/brands.php" class="drop__menu__li--links">Brands</a>
                         </li>
                         <li class="drop__menu__li">
-                            <a href="products.html" class="drop__menu__li--links">Products</a>
+                            <a href="../setup/products.php" class="drop__menu__li--links">Products</a>
                         </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="stock.html" class="links link4">
-                        <span class="menu__icons">
-                            <i class="fas fa-cubes"></i>
-                        </span>
-                        <!-- content -->
-                        <span class="menu__contents">
-                            Stock
-                        </span>
-                    </a>
-                    <!-- dropdown menu -->
-                    <ul class="drop__menu">
-                        <!-- <li class="drop__menu__li">
-                            <a href="#" class="drop__menu__li--links">Stock Report</a>
-                        </li> -->
                     </ul>
                 </li>
                 <li>
@@ -159,16 +163,16 @@
                     <!-- dropdown menu -->
                     <ul class="drop__menu">
                         <li class="drop__menu__li">
-                            <a href="#" class="drop__menu__li--links">Purchase Requisition</a>
+                            <a href="../purchase/purchase_order_entry.php" class="drop__menu__li--links">Purchase Order Entry</a>
                         </li>
                         <li class="drop__menu__li">
-                            <a href="#" class="drop__menu__li--links">Purchase Entry</a>
+                            <a href="../purchase/purchase_order.php" class="drop__menu__li--links">Purchase Order</a>
                         </li>
                         <li class="drop__menu__li">
-                            <a href="#" class="drop__menu__li--links">Purchase Requisition Update</a>
+                            <a href="../purchase/purchase_entry.php" class="drop__menu__li--links">Purchase Entry</a>
                         </li>
                         <li class="drop__menu__li">
-                            <a href="#" class="drop__menu__li--links">Purchase Entry Update</a>
+                            <a href="../purchase/purchase.php" class="drop__menu__li--links">Purchase</a>
                         </li>
                     </ul>
                 </li>
