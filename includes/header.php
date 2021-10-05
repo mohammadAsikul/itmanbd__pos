@@ -15,6 +15,9 @@
     case 'purchase_order_entry.php':
         $title_name = 'Purchase Order';
         break;
+    case 'category.php':
+        $title_name ='Category';
+        break;
   }
 ?>
 <!DOCTYPE html>
