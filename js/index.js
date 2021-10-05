@@ -45,6 +45,7 @@ $(document).ready(function () {
             e.preventDefault();
             $(".supplier__submit--form").removeClass('close');
         });
+        // close
         $(".supplier__submit__form--close").on('click', function (e) {
             e.preventDefault();
             $(".supplier__submit--form").addClass('close');
@@ -84,6 +85,17 @@ $(document).ready(function () {
                 });
             }
         });
+        // fetch supplier data using ajax
+        function fetchSupplierData() {
+            $.ajax({
+                url: "action.php",
+                type: "POST",
+                success: function (data) {
+                    $("#supplierFatchTable").html(data);
+                }
+            })
+        };
+        fetchSupplierData();
     // datatables for the purchase order table
     $('#example').DataTable();
     // action dropdown section purchase order

@@ -84,32 +84,8 @@
                         <th class="table__heading--items action">Actions</th>
                       </tr>
                   </thead>
-                  <tbody>
-                      <?php
-                          include '../includes/config.php';
-                          $supplierListSql = "SELECT * FROM ipos_supplier ORDER BY supplier_id DESC";
-                          $supplierQuery = mysqli_query($conn, $supplierListSql) or die("supplier view page query problems.");
-                          if (mysqli_num_rows($supplierQuery) > 0) {
-                          while ($row = mysqli_fetch_assoc($supplierQuery)) {
-                              echo "<tr class='table--data'>";
-                              echo "<td class='table--data--items'>$row[supplier_id]</td>";
-                              echo "<td class='table--data--items'>$row[supplier_name]</td>";
-                              echo "<td class='table--data--items'>$row[supplier_cont_person]</td>";
-                              echo "<td class='table--data--items'>$row[supplier_cont_number]</td>";
-                              echo "<td class='table--data--items'>$row[supplier_email_address]</td>";
-                              echo "<td class='table--data--items'>$row[supplier_whatsapp]</td>";
-                              echo "<td class='table--data--items'>$row[supplier_address]</td>";
-                              echo "<td class='table--data--items'><span class='status'>$row[supplier_status]</span></td>";
-                              echo "<td class='table--data--items'>$row[supplier_balance]</td>";
-                              echo "<td class='table--data--items table--data--action' data-id=''>
-                                  <button class='print' id='print'><i class='fas fa-print'></i></button>
-                                  <button class='update' id='update'><i class='fas fa-edit'></i></button>
-                                  <button class='delete' id='delete'><i class='fas fa-trash'></i></button>
-                              </td>";
-                              echo "</tr>";
-                          }
-                          }
-                      ?>
+                  <tbody id="supplierFatchTable">
+                        <!-- fatch supplier data using ajax -->
                   </tbody>
                   <tfoot>
                       <tr class="table__heading">
