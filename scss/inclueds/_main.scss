@@ -103,14 +103,14 @@
 .response{
     z-index: 1001;
     width: 250px;
-    height: 60px;
+    height: auto;
     padding: 10px;
     border-radius: 8px;
     display: flex;
     justify-content: center;
     align-items: center;
     position: absolute;
-    top: 100px;
+    top: 150px;
     right: 0;
     font-size: 1.2rem;
 }

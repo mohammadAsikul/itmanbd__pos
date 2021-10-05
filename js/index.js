@@ -96,6 +96,65 @@ $(document).ready(function () {
             })
         };
         fetchSupplierData();
+        // client add window show and close functions
+        $("#addClient").on('click', function (e) {
+            e.preventDefault();
+            $(".supplier__submit--form").removeClass('close');
+        });
+        // close
+        $(".supplier__submit__form--close").on('click', function (e) {
+            e.preventDefault();
+            $(".supplier__submit--form").addClass('close');
+            // to remove all responce msg class
+            $("#response").fadeOut();
+            $("#response").removeClass('success--msg').removeClass('errors--msg').removeClass('process--msg').html("");
+        });
+
+        // send client data to database using ajax
+        $("#clientSave").on('click', function (e) {
+            e.preventDefault();
+            $(this).attr("disabled", true);
+            setTimeout(() => {
+                $(this).attr("disabled", false);
+            }, 3000);
+            let clientName = $("#clientName").val();
+            let contactNumber = $("#contactNumber").val();
+            let clientEmail = $("#clientEmail").val();
+            let clientAddress = $("#clientAddress").val();
+            let clientStatus = $("#clientStatus").val();
+            if (clientName == "" || contactNumber == "" || clientAddress == "") {
+                $("#response").fadeIn();
+                $("#response").removeClass('success--msg').addClass('errors--msg').html('All fields are required.');
+            }else{
+                $("#response").fadeIn();
+                // $("#response").html($("#clientSubmitForm").serialize());
+                $.ajax({
+                    url: "client_action.php",
+                    type: "POST",
+                    data: $("#clientSubmitForm").serialize(),
+                    success: function (data) {
+                        $("#response").fadeIn();
+                        $("#response").html(data).removeClass('errors--msg').addClass('success--msg');
+                        setTimeout(() => {
+                            $("#response").fadeOut();
+                        }, 5000);
+                        $("#clientSubmitForm").trigger("reset");
+                        fetchClientData();
+                    }
+                });
+            }
+        });
+        // fetch client data using ajax
+        function fetchClientData() {
+            $.ajax({
+                url: "client_action.php",
+                type: "POST",
+                success: function (data) {
+                    $("#clientFatchTable").html(data);
+                }
+            })
+        };
+        fetchClientData();
     // datatables for the purchase order table
     $('#example').DataTable();
     // action dropdown section purchase order

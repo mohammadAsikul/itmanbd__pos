@@ -22,13 +22,13 @@
                         <button class='update' id='update' data-id='$row[supplier_id]'><i class='fas fa-edit'></i></button>
                         <button class='delete' id='delete' data-id='$row[supplier_id]'><i class='fas fa-trash'></i></button>
                     </td>
+                </tr>
                 ";
         }
         echo $fetchSupplierData;
     } else {
         echo $fetchSupplierData = "Supplier Data Can't show at this moment. Check your code.";
-    }
-
+    };
     // insert supplier to database using ajax
     if(isset($_POST['supplierName'])){
         include '../includes/config.php';
@@ -71,5 +71,7 @@
             }
         }
         echo $output;
-    }
+    } else {
+        echo "Data can't be send to the database.";
+    };
 ?>
