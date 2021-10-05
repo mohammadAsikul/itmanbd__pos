@@ -441,6 +441,13 @@ body {
   font-size: 14px;
 }
 
+.main .container .show--container .table tbody tr td .status {
+  border-radius: 4px;
+  background-color: #28A745;
+  color: #FFFFFF;
+  padding: 3px;
+}
+
 .main .container .show--container .table tbody tr td .print,
 .main .container .show--container .table tbody tr td .update,
 .main .container .show--container .table tbody tr td .delete {

@@ -99,7 +99,7 @@
                               echo "<td class='table--data--items'>$row[supplier_email_address]</td>";
                               echo "<td class='table--data--items'>$row[supplier_whatsapp]</td>";
                               echo "<td class='table--data--items'>$row[supplier_address]</td>";
-                              echo "<td class='table--data--items'>$row[supplier_status]</td>";
+                              echo "<td class='table--data--items'><span class='status'>$row[supplier_status]</span></td>";
                               echo "<td class='table--data--items'>$row[supplier_balance]</td>";
                               echo "<td class='table--data--items table--data--action' data-id=''>
                                   <button class='print' id='print'><i class='fas fa-print'></i></button>
