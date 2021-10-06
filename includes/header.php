@@ -18,6 +18,12 @@
     case 'category.php':
         $title_name ='Category';
         break;
+    case 'sub_category.php':
+        $title_name = "Sub Category";
+        break;
+    case 'brands.php':
+        $title_name = "Brands";
+        break;
   }
 ?>
 <!DOCTYPE html>

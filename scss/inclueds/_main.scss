@@ -47,7 +47,7 @@
             }
             label{
                 display: inline-block;
-                width: 40%;
+                width: 100%;
                 font-size: 1.2rem;
                 color: $text-dark;
             }
@@ -186,6 +186,87 @@
                         }
                         .supplier__address{
                             width: 15%;
+                        }
+                    }
+                }
+                #categoryFatchTable,
+                #supplierFatchTable,
+                #clientFatchTable,
+                #subCategoryFatchTable{
+                    tr{
+                        td{
+                            text-align: center !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    // brands display section
+    .brands--container{
+        width: 100%;
+        height: 100vh;
+        display: grid;
+        grid-template-columns: 400px 1fr;
+        grid-template-rows: 1fr;
+        grid-gap: 0 10px;
+        .insert--container{
+            grid-column: 1/2;
+            
+        }
+        #response{
+            grid-column: 1/3;
+        }
+        .show--container{
+            background-color: rgb(240, 228, 228);
+            grid-column: 2/3;
+            .show__table--container{
+                .heading--container{
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    h3{
+                        padding: 10px;
+                        color: $text-primary;
+                        font-size: 1.5rem;
+                    }
+                }
+                .brands--table{
+                    padding: 5px;
+                    thead{
+                        tr{
+                            width: 100%;
+                            display: inline-block;
+                            background-color: $bg-secondary;
+
+                            th{
+                                color: $text-white;
+                                border-right: 1px solid $border-primary;
+                                padding: 5px 0;
+                            }
+                            th:nth-of-type(1){
+                                width: 10%;
+                            }
+                            th:nth-of-type(2){
+                                width: 35%;
+                            }
+                            th:nth-of-type(3){
+                                width: 15%;
+                            }
+                            th:nth-of-type(4){
+                                width: 15%;
+                            }
+                            th:nth-of-type(5){
+                                width: 15%;
+                                border-right: none;
+                            }
+                        }
+                    }
+                    tbody{
+                        tr{
+                            td{
+
+                            }
                         }
                     }
                 }
