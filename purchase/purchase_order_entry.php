@@ -13,21 +13,21 @@ date_default_timezone_set("Asia/Dhaka");
                         <span class="arrow"><i class="fas fa-chevron-right"></i></span>
                         <p>Purchase Order Entry</p>
                     </div>
-                    <form id="poEntry" class="po__form">
+                    <form id="cart" class="po__form">
                         <fieldset>
                             <legend>Purchase Order Entry:</legend>
                             <!-- datetime -->
                             <div class="po__date__time">
                                 <label for="po__date">PO Date</label>
                                 <?php
-                                  echo "<input type='text' name='poDate[]' id='poDate' value='{$currentDate}'>";
-                                  echo "<input type='hidden' name='poTime[]' id='poTime' value='{$currentTime}'>";
+                                  echo "<input type='text' name='poDate[]' id='poDate' class='poDate' value='{$currentDate}'>";
+                                  echo "<input type='hidden' name='poTime[]' id='poTime' class='poTime' value='{$currentTime}'>";
                                 ?>
                             </div>
                             <!-- po id -->
                             <div class="po__id__btn">
                                 <label for="po__id">PO Id</label>
-                                <input type="text" name="poId[]" id="poId" value="PO-001-">
+                                <input type="text" name="poId[]" id="poId" class="poId" value="">
                                 <button id="poSearch" class="btn po__search"><i class='bx bx-search-alt'></i></button>
                             </div>
                             <!-- supplier -->
@@ -51,7 +51,7 @@ date_default_timezone_set("Asia/Dhaka");
                             </div>
                             <!-- po item add list -->
                             <div class="po__item--table">
-                                <table class="po__items">
+                                <table name="cart" class="po__items">
                                     <thead>
                                         <tr>
                                             <th>Action</th>
@@ -65,23 +65,38 @@ date_default_timezone_set("Asia/Dhaka");
                                     </thead>
                                     <tbody class="po__tbody">
                                         <!-- <tr class="tr" id="tableRow"> -->
-                                        <tr>
+                                        <tr class="line_items">
                                             <td class="po__remove">
-                                                <button class="remove" id="poRemoveItem"><i class="fas fa-trash"></i></button>
+                                                <button class="row-remove" id="poRemoveItem"><i class="fas fa-trash"></i></button>
                                             </td>
-                                            <td class="po__items" contenteditable="true"></td>
-                                            <td class="po__description" contenteditable="true"></td>
+                                            <td class="po__items">
+                                                <input type="text" name="itemName[]" id="itemName" class="itemName" placeholder="Item">
+                                            </td>
+                                            <td class="po__description">
+                                                <input type="text" name="itemDescription[]" id="itemDescription" class="itemDescription" placeholder="Description">
+                                            </td>
                                             <td class="po__unit">
-                                                <select name="poUnit[]" id="poUnit">
-                                                    <option value="">Select Unit</option>
-                                                    <option value="Pcs">Pcs</option>
-                                                    <option value="Box">Box</option>
-                                                    <option value="Meter">Meter</option>
+                                                <select name="itemUnit" id="itemUnit" class="itemUnit">
+                                                    <?php
+                                                        include '../includes/config.php';
+                                                        $getUnitSql = "SELECT * FROM ipos_unit";
+                                                        $getUnitQuery = mysqli_query($conn, $getUnitSql) or die("Unit page query problems.");
+                                                        if (mysqli_num_rows($getUnitQuery) > 0) {
+                                                            echo "<option selected disabled>Select Unit</option>";
+                                                            while ($unitRow = mysqli_fetch_assoc($getUnitQuery)) {
+                                                                echo "<option value='{$unitRow["unit_id"]}'>{$unitRow["unit_name"]}</option>";
+                                                            }
+                                                        }
+                                                    ?>
                                                 </select>
                                             </td>
-                                            <td class="po__qty" contenteditable="true"></td>
-                                            <td class="po__price" contenteditable="true"></td>
-                                            <td class="po__total"><span id="poTotal" class="poTotal">0</span></td>
+                                            <td class="po__qty">
+                                                <input type="text" name="qty" id="itemQty" class="itemQty" placeholder="Quantity">
+                                            </td>
+                                            <td class="po__price">
+                                                <input type="text" name="price" id="itemPrice" class="itemPrice" class="itemPrice" placeholder="Price">
+                                            </td>
+                                            <td class="po__total"><input type="text" name="item_total" id="itemTotal" class="itemTotal" value="" jAutoCalc="{qty} * {price}"  readonly disabled></td>
                                         </tr>
                                     </tbody>
                                     <tfoot>
@@ -89,21 +104,23 @@ date_default_timezone_set("Asia/Dhaka");
                                         <tr class="add__subtotal">
                                             <td colspan="6">
                                                 <div class="po__subtotal--content">
-                                                    <button class="addRow" id="addRow">Add Row</button>
+                                                    <button class="row-add" id="addRow">Add Row</button>
                                                     <p>Sub Total</p>
                                                 </div>
                                             </td>
-                                            <td><span id="poTotal" class="poTotal">0</span></td>
+                                            <td><input type="text" name="sub_total" id="subTotal" value="" jAutoCalc="SUM({item_total})" readonly disabled></td>
                                         </tr>
                                         <!-- discount -->
                                         <tr class="add__discount">
                                             <td colspan="6">
                                                 <div class="po__discount--content">
                                                     <p>Discount</p>
-                                                    <input type="text" name="poDiscount" id="poDiscount">
                                                 </div>
                                             </td>
-                                            <td><span id="poTotal" class="poTotal">0</span></td>
+                                            <td>
+                                                <input type="text" name="discount" id="poDiscount" value="0">
+                                            </td>
+                                            <!-- <td><input type="text" name="grand_total" id="grandTotal" value="" jAutoCalc="{sub_total} - {discount}"></td> -->
                                         </tr>
                                         <!-- total -->
                                         <tr class="show__total">
@@ -112,7 +129,7 @@ date_default_timezone_set("Asia/Dhaka");
                                                     <p>Total</p>
                                                 </div>
                                             </td>
-                                            <td><span id="poTotal" class="poTotal">0</span></td>
+                                            <td><input type="text" name="grand_total" id="grandTotal" value="" jAutoCalc="{sub_total} - {discount}" readonly="readonly" disabled _jautocalc="_jautocalc"></td>
                                         </tr>
                                         <tr class="add__comment__status--content">
                                             <td colspan="7">
