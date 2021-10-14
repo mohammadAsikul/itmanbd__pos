@@ -30,10 +30,19 @@
                         if (isset($_POST['submit'])){
                             $pos_username = mysqli_real_escape_string($conn, $_POST['username']);
                             $pos_password = mysqli_real_escape_string($conn, md5($_POST['password']));
-                            $sql_pos_login = "SELECT * FROM users WHERE username = '{$pos_username}' AND password = '{$pos_password}'";
+                            $sql_pos_login = "SELECT * FROM ipos_user WHERE username = '{$pos_username}' AND password = '{$pos_password}'";
                             $query_pos_login = mysqli_query($conn, $sql_pos_login) or die("pos_login page query problem.");
                             if (mysqli_num_rows($query_pos_login) > 0) {
-                            header("Location: http://localhost/ipos/dashboard/");
+                                while ($row = mysqli_fetch_assoc($query_pos_login)) {
+                                    session_start();
+                                    $_SESSION['user_id'] = $row['id'];
+                                    $_SESSION['username'] = $row['username'];
+                                    $_SESSION['password'] = $row['password'];
+                                    $_SESSION['designation'] = $row['designation'];
+                                    $_SESSION['user_role'] = $row['user_role'];
+                                    $_SESSION['status'] = $row['status'];
+                                }
+                            header("Location: http://localhost/itmanbd__pos/dashboard/");
                             }else{
 
                             }

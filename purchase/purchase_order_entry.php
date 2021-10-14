@@ -27,27 +27,41 @@ date_default_timezone_set("Asia/Dhaka");
                             <!-- po id -->
                             <div class="po__id__btn">
                                 <label for="po__id">PO Id</label>
-                                <input type="text" name="poId[]" id="poId" class="poId" value="">
+                                <?php
+                                    include '../includes/config.php';
+                                    $po_sql = "SELECT count(id) FROM `ipos_purchase_order`";
+                                    $po_id_count = mysqli_query($conn, $po_sql) or die("purchase order id query problems.") . mysqli_error($conn);
+                                    if (mysqli_num_rows($po_id_count) > 0) {
+                                        while ($count_row = mysqli_fetch_assoc($po_id_count)) {
+                                            $_SESSION['count_id'] = $count_row['count(id)'];
+                                        }
+                                    }
+                                    $po_user_id = "PO-". "0" .$_SESSION['user_id']. "-" . ($_SESSION['count_id'] + 1);
+                                    echo "<input type='text' name='poId[]' id='poId' class='poId' value='{$po_user_id}'>";
+                                ?>
                                 <button id="poSearch" class="btn po__search"><i class='bx bx-search-alt'></i></button>
                             </div>
-                            <!-- supplier -->
-                            <div class="po__supplier">
-                                <label for="po__supplier">Supplier</label>
+                            <!-- Client -->
+                            <div class="po__client">
+                                <label for="po__client">Client Name</label>
                                 <?php
                                   include '../includes/config.php';
                                   $selected = "selected";
                                   $disabled = "disabled";
-                                  $supplierListSql = "SELECT * FROM ipos_supplier ORDER BY supplier_name DESC";
-                                  $supplierListQuery = mysqli_query($conn, $supplierListSql) or die("supplier list sql query problems." . mysqli_err($conn));
-                                  if (mysqli_num_rows($supplierListQuery) > 0) {
-                                    echo "<select name='poSupplier[]' id='poSupplier'>";
-                                    echo "<option value='' '{$selected}' '{$disable}'>Select Supplier</option>";
-                                    while ($row = mysqli_fetch_assoc($supplierListQuery)) {
-                                      echo "<option value='{$row["supplier_id"]}'>{$row['supplier_name']}</option>";
+                                  $clientListSql = "SELECT * FROM ipos_client ORDER BY client_name DESC";
+                                  $clientListQuery = mysqli_query($conn, $clientListSql) or die("client list sql query problems." . mysqli_error($conn));
+                                  if (mysqli_num_rows($clientListQuery) > 0) {
+                                    echo "<select name='poClient[]' id='poClient'>";
+                                    echo "<option value='' '{$selected}' '{$disable}'>Select Client</option>";
+                                    while ($row = mysqli_fetch_assoc($clientListQuery)) {
+                                      echo "<option value='{$row["client_id"]}'>{$row['client_name']}</option>";
                                     }
                                     echo "</select>";
                                   }
                                 ?>
+                                <span class="add_client" id="addClient">
+                                    <button id="poClient" class="add__client--po">+</button>
+                                </span>
                             </div>
                             <!-- po item add list -->
                             <div class="po__item--table">
@@ -118,7 +132,7 @@ date_default_timezone_set("Asia/Dhaka");
                                                 </div>
                                             </td>
                                             <td>
-                                                <input type="text" name="discount" id="poDiscount" value="0">
+                                                <input type="text" name="poDiscount" id="poDiscount" value="0">
                                             </td>
                                             <!-- <td><input type="text" name="grand_total" id="grandTotal" value="" jAutoCalc="{sub_total} - {discount}"></td> -->
                                         </tr>
@@ -129,7 +143,26 @@ date_default_timezone_set("Asia/Dhaka");
                                                     <p>Total</p>
                                                 </div>
                                             </td>
-                                            <td><input type="text" name="grand_total" id="grandTotal" value="" jAutoCalc="{sub_total} - {discount}" readonly="readonly" disabled _jautocalc="_jautocalc"></td>
+                                            <td><input type="text" name="total" id="total" value="" jAutoCalc="{sub_total} - {poDiscount}" readonly="readonly" disabled _jautocalc="_jautocalc"></td>
+                                            <!-- <td><input type="text" name="grand_total" id="grandTotal" value="" jAutoCalc="{sub_total} - {discount}" readonly="readonly" disabled _jautocalc="_jautocalc"></td> -->
+                                        </tr>
+                                        <!-- pay amount -->
+                                        <tr class="pay__amount">
+                                            <td colspan="6">
+                                                <div class="pay__amount--content">
+                                                    <p>Pay Amount</p>
+                                                </div>
+                                            </td>
+                                            <td><input type="text" name="payAmount" id="payAmount" value="0"></td>
+                                        </tr>
+                                        <!-- grand total -->
+                                        <tr class="due__balance">
+                                            <td colspan="6">
+                                                <div class="grand__total--content">
+                                                    <p>Due Balance</p>
+                                                </div>
+                                            </td>
+                                            <td><input type="text" name="dueBalance" id="dueBalance" value="" jAutoCalc="{total} - {payAmount}" readonly="readonly" disabled _jautocalc="_jautocalc"></td>
                                         </tr>
                                         <tr class="add__comment__status--content">
                                             <td colspan="7">
@@ -141,8 +174,8 @@ date_default_timezone_set("Asia/Dhaka");
                                                     <div class="po__status">
                                                         <p>Status</p>
                                                         <select name="poStatus" id="poStatus">
-                                                            <option value="" selected>Pending</option>
-                                                            <option value="">Approved</option>
+                                                            <option value="Pending" selected>Pending</option>
+                                                            <option value="Approved">Approved</option>
                                                         </select>
                                                     </div>
                                                 </div>

@@ -1,5 +1,8 @@
 <?php
   session_start();
+  if (!isset($_SESSION['username'])) {
+      header("Location: http://localhost/itmanbd__pos/");
+  }
   include '../includes/config.php';
   $page = basename($_SERVER['PHP_SELF']);
   switch($page) {
@@ -23,6 +26,9 @@
         break;
     case 'brands.php':
         $title_name = "Brands";
+        break;
+    case 'users.php':
+        $title_name = "Users";
         break;
   }
 ?>
@@ -123,9 +129,9 @@
                     </a>
                     <!-- dropdown menu -->
                     <ul class="drop__menu">
-                        <!-- <li class="drop__menu__li">
-                            <a href="#" class="drop__menu__li--links">Stock Report</a>
-                        </li> -->
+                        <li class="drop__menu__li">
+                            <a href="../system/users.php" class="drop__menu__li--links">Users</a>
+                        </li>
                     </ul>
                 </li>
                 <li>

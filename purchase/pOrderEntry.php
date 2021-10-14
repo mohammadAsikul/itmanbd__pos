@@ -1,6 +1,18 @@
 <?php
+    session_start();
     include '../includes/config.php';
     if (isset($_POST['item_name'])) {
+        $po_id = $_POST['po_order_id'];
+        $po_date = $_POST['po_order_date'];
+        $po_time = $_POST['po_order_time'];
+        $po_user = $_SESSION['user_id'];
+        $po_client = $_POST['po_order_client'];
+        $po_sub_total = $_POST['po_sub_total'];
+        $po_discount = $_POST['po_discount'];
+        $po_total = $_POST['po_total'];
+        $po_comment = $_POST['po_comment'];
+        $po_status = $_POST['po_status'];
+        // order item
        $item_name = $_POST['item_name'];
        $item_description = $_POST['item_description'];
        $item_unit = $_POST['item_unit'];
@@ -8,6 +20,9 @@
        $item_price = $_POST['item_price'];
        $item_total_price = $_POST['item_total_price'];
        $query = "";
+        // insert the purchase order information
+        // $query .= "INSERT INTO `ipos_purchase_order` (`id`, `purchase_order_id`, `purchase_order_date`, `purchase_order_time`, `user_id`, `client_id`, `purchase_order_subTotal`, `purchase_order_discount`, `purchase_order_grandTotal`, `comment`, `status`) VALUES (NULL, '{$po_id}', '{$po_date}', '{$po_time}', {$po_user}, {$po_client}, '{$po_sub_total}', '{$po_discount}', '{$po_total}', '{$po_comment}', '{$po_status}');";
+
        for($count = 0; $count < count($item_name); $count++) {
            $item_name_clean = mysqli_real_escape_string($conn, $item_name[$count]);
            $item_description_clean = mysqli_real_escape_string($conn, $item_description[$count]);
@@ -17,7 +32,7 @@
            $item_total_price_clean = mysqli_real_escape_string($conn, $item_total_price[$count]);
 
            if ($item_name_clean != '' && $item_description_clean != '' && $item_unit_clean != '' && $item_qty_clean != '' && $item_price_clean !='' && $item_total_price_clean != '') {
-               $query .= "INSERT INTO ipos_purchase_order_item (purchase_order_id, item_id, purchase_order_item_description, purchase_order_item_unit, purchase_order_item_qty, purchase_order_item_price, purchase_order_item_total) VALUES ('{$item_name_clean}', '{$item_description_clean}', '{$item_qty_clean}', '{$item_price_clean}', '{$item_total_price_clean}');";
+                $query .= "INSERT INTO `ipos_purchase_order_item` (`id`, `purchase_order_id`, `item_id`, `purchase_order_item_description`, `purchase_order_item_unit`, `purchase_order_item_qty`, `purchase_order_item_price`, `purchase_order_item_total`) VALUES (NULL, '{$po_id}', {$item_name_clean}, '{$item_description_clean}', {$item_unit_clean}, {$item_qty_clean}, {$item_price_clean}, {$item_total_price_clean});";
            }
        }
     }
@@ -25,7 +40,7 @@
         if (mysqli_multi_query($conn, $query)) {
             echo 'Item Data Inserted';
         } else {
-            echo "Error";
+            echo "Error" . mysqli_error($conn);
         }
     } else {
         echo "All Fields are Required";
