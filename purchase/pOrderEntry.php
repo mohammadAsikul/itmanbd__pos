@@ -40,7 +40,7 @@
         if (mysqli_multi_query($conn, $query)) {
             echo 'Item Data Inserted';
         } else {
-            echo "Error" . mysqli_error($conn);
+            echo "Error " . mysqli_error($conn);
         }
     } else {
         echo "All Fields are Required";

@@ -108,9 +108,11 @@ date_default_timezone_set("Asia/Dhaka");
                                                 <input type="text" name="qty" id="itemQty" class="itemQty" placeholder="Quantity">
                                             </td>
                                             <td class="po__price">
-                                                <input type="text" name="price" id="itemPrice" class="itemPrice" class="itemPrice" placeholder="Price">
+                                                <input type="text" name="price" id="itemPrice" class="itemPrice" placeholder="Price">
                                             </td>
-                                            <td class="po__total"><input type="text" name="item_total" id="itemTotal" class="itemTotal" value="" jAutoCalc="{qty} * {price}"  readonly disabled></td>
+                                            <td class="po__total">
+                                                <input type="text" name="item_total" id="itemTotal" class="itemTotal" value="" jAutoCalc="{qty} * {price}"  readonly disabled>
+                                            </td>
                                         </tr>
                                     </tbody>
                                     <tfoot>
