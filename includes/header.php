@@ -30,6 +30,15 @@
     case 'users.php':
         $title_name = "Users";
         break;
+    case 'purchase_order.php':
+        $title_name = "Purchase Order List";
+        break;
+    case 'purchase_entry.php':
+        $title_name = "Purchase Entry";
+        break;
+    case 'purchase.php':
+        $title_name = "Purchase List";
+        break;
   }
 ?>
 <!DOCTYPE html>
