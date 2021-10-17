@@ -68,9 +68,9 @@ $(document).ready(function () {
             type: "POST",
             data: {po_order_date:po_order_date, po_order_time:po_order_time, po_id:po_id, po_order_client:po_order_client, po_sub_total:po_sub_total, po_discount:po_discount, po_total:po_total, po_comment:po_comment, po_status:po_status, item_name:item_name, item_description:item_description, item_unit:item_unit, item_qty:item_qty, item_price:item_price, item_total_price:item_total_price},
             success: function (data) {
-                // $("input[type='text']").val('');
                 console.log(data);
-                
+                $(".po__form").trigger('reset');
+                fetchPurchaseOrder();
             }
         })
     });
@@ -130,6 +130,7 @@ $(document).ready(function () {
                     // $("input[type='text']").val('');
                     console.log(purData);
                     $(".purchase__form").trigger('reset');
+                    fetchPurchase();
                 }
             });   
         }

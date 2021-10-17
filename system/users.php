@@ -1,23 +1,23 @@
 <?php require_once '../includes/header.php' ?>
     <!-- main section start -->
-    <main id="main" class="main brands__main">
-        <div class="container brands--container">
+    <main id="main" class="main user__main">
+        <div class="container user__main--container">
             <!-- insert -->
             <div class="insert--container">
-                <form id="userSubmitForm" class="brands--form">
-                    <div class="supplier__dialog" id="supplierDialog">
+                <form id="userSubmitForm" class="user--form">
+                    <div class="user__dialog" id="userDialog">
                         <div class="supplier__dialog--heading">
                             <h3>User Add</h3>
                         </div>
                         <div class="form__group">
-                            <label for="idName">User Name *</label>
+                            <label for="idName">User Name</label>
                             <span id="errorUserName" class="error--msg"></span>
                             <input type="text" name="userName" id="userName">
                         </div>
                         <div class="form__group">
                             <label for="userPassword">User Password</label>
                             <span id="errorUserPassword" class="error--msg"></span>
-                            <input type="text" name="userPassword" id="userPassword">
+                            <input type="password" name="userPassword" id="userPassword">
                         </div>
                         <div class="form__group">
                             <label for="userDesignation">User Designation</label>
@@ -44,14 +44,12 @@
                             </select>
                         </div>
                         <div class="form__group">
-                            <button type="button" name="userSave" id="userSave" class="save--btn">Save</button>
+                            <button type="button" name="userSave" id="userSave" class="save--btn user__save--btn">Save</button>
                             <!-- <input type="submit" id="supplierSave" class="save--btn" disabled value="Send"> -->
                         </div>
                     </div>
                 </form>
             </div>
-            <!-- messege -->
-            <div class="response" id="response"></div>
             <!-- show -->
             <div class="show--container">
                 <!-- category show section -->
@@ -59,19 +57,18 @@
                     <div class="heading--container">
                         <h3>Users List</h3>
                     </div>
-                    <table id="brands" class="display item__show--table brands--table" style="width:100%">
-                        <thead>
-                            <tr class="table__heading">
-                                <th class="table__heading--items sl">SL</th>
-                                <th class="table__heading--items item2">User Name</th>
-                                <th class="table__heading--items item3">Password</th>
-                                <th class="table__heading--items item4">Designation</th>
-                                <th class="table__heading--items item5">User Role</th>
-                                <th class="table__heading--items status">Status</th>
-                                <th class="table__heading--items action">Actions</th>
+                    <table id="userTable" class="user__table table" style="width:100%">
+                        <thead id="userTableHeader">
+                            <tr class="table__heading--user" style="text-align: center">
+                                <th class="table__heading--items--user">SL</th>
+                                <th class="table__heading--items--user">User Name</th>
+                                <th class="table__heading--items--user">Designation</th>
+                                <th class="table__heading--items--user">User Role</th>
+                                <th class="table__heading--items--user">Status</th>
+                                <th class="table__heading--items--user">Actions</th>
                             </tr>
                         </thead>
-                        <tbody id="userFatchTable">
+                        <tbody id="userFatchTable" style="text-align: center">
                             <!-- fatch supplier data using ajax -->
                         </tbody>
                         <tfoot></tfoot>

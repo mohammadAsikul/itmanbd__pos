@@ -6,26 +6,23 @@
     if (mysqli_num_rows($purQuery) > 0) {
         while ($row = mysqli_fetch_assoc($purQuery)) {
             $output .= "
-            <tr>
-                <td>{$row['id']}</td>
-                <td>{$row['purchase_id']}</td>
-                <td>{$row['purchase_order_id']}</td>
-                <td>{$row['purchase_date']}</td>
-                <td>{$row['supplier_id']}</td>
-                <td>{$row['user_id']}</td>
-                <td>{$row['purchase_subTotal']}</td>
-                <td>{$row['purchase_discount']}</td>
-                <td>{$row['purchase_total']}</td>
-                <td>{$row['purchase_payAmount']}</td>
-                <td>{$row['purchase_dueAmount']}</td>
-                <td>{$row['purchase_status']}</td>
-                <td class='btn--container'>
-                    <button class='actionDropdown' id='actionDropdown'>Action</button>
-                    <ul class='dropdown' id='dropdown'>
-                        <li><button class='btn view' id='view'>View</button></li>
-                        <li><button class='btn edit' id='edit'>Edit</button></li>
-                        <li><button class='btn delete' id='delete'>Delete</button></li>
-                    </ul>
+            <tr class='table--data'>
+                <td class='table--data--items'>{$row['id']}</td>
+                <td class='table--data--items'>{$row['purchase_id']}</td>
+                <td class='table--data--items'>{$row['purchase_order_id']}</td>
+                <td class='table--data--items'>{$row['purchase_date']}</td>
+                <td class='table--data--items'>{$row['supplier_id']}</td>
+                <td class='table--data--items'>{$row['user_id']}</td>
+                <td class='table--data--items'>{$row['purchase_subTotal']}</td>
+                <td class='table--data--items'>{$row['purchase_discount']}</td>
+                <td class='table--data--items'>{$row['purchase_total']}</td>
+                <td class='table--data--items'>{$row['purchase_payAmount']}</td>
+                <td class='table--data--items'>{$row['purchase_dueAmount']}</td>
+                <td class='table--data--items'><span class='status'>{$row['purchase_status']}</span></td>
+                <td class='table--data--items table--data--action' data-id=''>
+                    <button class='print' id='print' data-id='$row[id]'><i class='fas fa-print'></i></button>
+                    <button class='update' id='update' data-id='$row[id]'><i class='fas fa-edit'></i></button>
+                    <button class='delete' id='delete' data-id='$row[id]'><i class='fas fa-trash'></i></button>
                 </td>
             </tr>
             ";   

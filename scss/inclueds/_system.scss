@@ -1,0 +1,73 @@
+.user__main{
+    .user__main--container{
+        display: grid;
+        grid-template-rows: 1fr;
+        grid-template-columns: 300px 1fr;
+        grid-gap: 0 10px;
+        .insert--container{
+            .user--form{
+                background-color: $bg-light;
+                border-radius: 8px;
+                padding: 10px;
+                .user__dialog{
+                    .form__group{
+                        margin-bottom: 5px;
+                        label,
+                        input{
+                            display: block;
+                        }
+                        input,
+                        select{
+                            width: 100%;
+                            font-size: 14px;
+                            padding: 3px 5px;
+                        }
+                        .user__save--btn{
+                            background-color: $bg-primary;
+                            border: none;
+                            width: 100px;
+                            height: 30px;
+                            font-size: 14px;
+                            color: $text-light;
+                            cursor: pointer;
+                            margin-top: 5px;
+                            border-radius: 8px;
+                        }
+                        .user__save--btn:hover{
+                            background-color: $bg-secondary;
+                        }
+                    }
+                }
+            }
+        }
+        .show--container{
+            background-color: $bg-light;
+            border-radius: 8px;
+            padding: 10px;
+            .show__table--container{
+                .user__table,
+                tr, th, td{
+                    border: 1px solid black;
+                    border-collapse: collapse;
+                }
+                .user__table{
+                    thead{
+                        .table__heading--user{
+                            background-color: $bg-primary;
+                            color: $text-light;
+                        }
+                        th{
+                            padding: 5px 0;
+                        }
+                    }
+                    tbody{
+                        td{
+                            font-size: 14px;
+                            padding: 5px 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

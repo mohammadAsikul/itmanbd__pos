@@ -16,13 +16,10 @@
                 <td>{$row['purchase_order_discount']}</td>
                 <td>{$row['purchase_order_total']}</td>
                 <td>{$row['status']}</td>
-                <td class='btn--container'>
-                    <button class='actionDropdown' id='actionDropdown'>Action</button>
-                    <ul class='dropdown' id='dropdown'>
-                        <li><button class='btn view' id='view'>View</button></li>
-                        <li><button class='btn edit' id='edit'>Edit</button></li>
-                        <li><button class='btn delete' id='delete'>Delete</button></li>
-                    </ul>
+                <td class='table--data--items table--data--action' data-id=''>
+                    <button class='print' id='print' data-id='$row[id]'><i class='fas fa-print'></i></button>
+                    <button class='update' id='update' data-id='$row[id]'><i class='fas fa-edit'></i></button>
+                    <button class='delete' id='delete' data-id='$row[id]'><i class='fas fa-trash'></i></button>
                 </td>
             </tr>
             ";   

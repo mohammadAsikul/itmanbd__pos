@@ -39,6 +39,10 @@
     case 'purchase.php':
         $title_name = "Purchase List";
         break;
+    case 'stock.php':
+        $title_name = "Stock";
+        break;
+
   }
 ?>
 <!DOCTYPE html>
@@ -263,7 +267,7 @@
                     <!-- dropdown menu -->
                     <ul class="drop__menu">
                         <li class="drop__menu__li">
-                            <a href="#" class="drop__menu__li--links">Stock Report</a>
+                            <a href="../reports/stock.php" class="drop__menu__li--links">Stock Report</a>
                         </li>
                         <li class="drop__menu__li">
                             <a href="#" class="drop__menu__li--links">product List</a>

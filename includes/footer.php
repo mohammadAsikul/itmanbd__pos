@@ -7,6 +7,7 @@
 <script src="../js/setup.js"></script>
 
 <script src="../js/purchase.js"></script>
+<script src="../js/reports.js"></script>
 <script src="../js/index.js"></script>
 </body>
 </html>

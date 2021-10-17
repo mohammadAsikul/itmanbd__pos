@@ -8,7 +8,7 @@
                         <h3>Purchase Order List</h3>
                     </div>
                     <div class="table--container purchase__order--table">
-                        <table id="poTable" class="display" style="width:100%">
+                        <table id="example" class="display item__show--table table" style="width:100%">
                             <thead>
                                 <tr>
                                     <th>SL</th>
@@ -30,9 +30,13 @@
                                 <tr>
                                     <th>SL</th>
                                     <th>PO Id</th>
-                                    <th>Supplier</th>
-                                    <th>Total Items</th>
+                                    <th>Purchase Date</th>
+                                    <th>User</th>
+                                    <th>Client</th>
+                                    <th>Sub Total</th>
+                                    <th>Discount</th>
                                     <th>Total Amount</th>
+                                    <th>Status</th>
                                     <th>Action</th>
                                 </tr>
                             </tfoot>

@@ -129,6 +129,80 @@ body {
   background-color: #133e6e;
 }
 
+.user__main .user__main--container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 1fr;
+      grid-template-rows: 1fr;
+  -ms-grid-columns: 300px 1fr;
+      grid-template-columns: 300px 1fr;
+  grid-gap: 0 10px;
+}
+
+.user__main .user__main--container .insert--container .user--form {
+  background-color: #F8F9FA;
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.user__main .user__main--container .insert--container .user--form .user__dialog .form__group {
+  margin-bottom: 5px;
+}
+
+.user__main .user__main--container .insert--container .user--form .user__dialog .form__group label,
+.user__main .user__main--container .insert--container .user--form .user__dialog .form__group input {
+  display: block;
+}
+
+.user__main .user__main--container .insert--container .user--form .user__dialog .form__group input,
+.user__main .user__main--container .insert--container .user--form .user__dialog .form__group select {
+  width: 100%;
+  font-size: 14px;
+  padding: 3px 5px;
+}
+
+.user__main .user__main--container .insert--container .user--form .user__dialog .form__group .user__save--btn {
+  background-color: #007BFF;
+  border: none;
+  width: 100px;
+  height: 30px;
+  font-size: 14px;
+  color: #F8F9FA;
+  cursor: pointer;
+  margin-top: 5px;
+  border-radius: 8px;
+}
+
+.user__main .user__main--container .insert--container .user--form .user__dialog .form__group .user__save--btn:hover {
+  background-color: #6C757D;
+}
+
+.user__main .user__main--container .show--container {
+  background-color: #F8F9FA;
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.user__main .user__main--container .show--container .show__table--container .user__table,
+.user__main .user__main--container .show--container .show__table--container tr, .user__main .user__main--container .show--container .show__table--container th, .user__main .user__main--container .show--container .show__table--container td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+.user__main .user__main--container .show--container .show__table--container .user__table thead .table__heading--user {
+  background-color: #007BFF;
+  color: #F8F9FA;
+}
+
+.user__main .user__main--container .show--container .show__table--container .user__table thead th {
+  padding: 5px 0;
+}
+
+.user__main .user__main--container .show--container .show__table--container .user__table tbody td {
+  font-size: 14px;
+  padding: 5px 0;
+}
+
 .menu {
   width: 290px;
   height: 100%;
