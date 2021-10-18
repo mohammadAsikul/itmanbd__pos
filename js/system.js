@@ -4,7 +4,7 @@ $(document).ready(function () {
         let userName = $("#userName").val();
         let password = $("#userPassword").val();
         let userDesignation = $("#userDesignation").val();
-        let itemUnit = $("#itemUnit").val();
+        let userRole = $("#userRole").val();
         let userStatus = $("#userStatus").val();
         $.ajax({
             url: "upload.php",
@@ -27,34 +27,49 @@ $(document).ready(function () {
         })
     }
     fetchUserData();
-    // update user data
-    $("tbody").on("click", ".update", function (e) {
+    // open the model with updateable content
+    $(document).on("click", ".update", function (e) {
         e.preventDefault();
-        let conf = confirm("Are you sure?");
-        let id = $(this).attr("id");
-        let username = $(this).attr("data-username");
-        let designation = $(this).attr("data-designation");
-        let role = $(this).attr("data-role");
-        let status = $(this).attr("data-status");
-        if (conf==true) {
-            
-            $("#userName").val(username);
-        }
+        $("#userUpdateForm").removeClass('close');
+        console.log($(".user__update--form").html());
+        let id = $(this).attr("data-updateId");
+        $.ajax({
+            url: "updateUser.php",
+            type: "POST",
+            data: {userId: id},
+            success: function (updateData) {
+                // alert(updateData);
+                $("#userUpdateForm").html(updateData);
+            }
+        })
     });
-    // delete user data
-    // $("tbody").on("click", ".update", function (e) {
-    //     e.preventDefault();
-    //     let conf = confirm("Are you sure?");
-    //     if (conf==true) {
-    //         let updateId = $(this).attr("data-updateId");
-    //         $.ajax({
-    //             url: "action.php",
-    //             type: "POST",
-    //             data: {updateId:updateId},
-    //             success: function (data) {
-    //                 fetchUserData();
-    //             }
-    //         });
-    //     }
-    // })
+    // close update model
+    $(document).on("click", ".update__form--close", function (e) {
+        e.preventDefault();
+        $("#userUpdateForm").addClass('close');
+    })
+    $(document).on("click", "#userUpdate", function (e) {
+        e.preventDefault();
+
+        let updateUserId = $("#userId").val();
+        let userUpdateName = $("#updateUserName").val();
+        let userUpdatePassword = $("#updateUserPassword").val();
+        let updateUserDesignation = $("#updateUserDesignation").val();
+        let updateUserRole = $("#updateUserRole").val();
+        let updateUserStatus = $("#updateUserStatus").val();
+        $.ajax({
+            url: "updateUser.php",
+            type: "POST",
+            data: { updateUserId: updateUserId, userUpdateName: userUpdateName, userUpdatePassword:userUpdatePassword, updateUserDesignation:updateUserDesignation, updateUserRole:updateUserRole, updateUserStatus:updateUserStatus },
+            success: function (updatedData) {
+                fetchUserData();
+                alert(updatedData);
+                if (updatedData == "Data Update Successfully.") {
+                    $("#userUpdateForm").addClass('close');
+                } else {
+                    alert(updatedData);
+                }
+            }
+        });
+    })
 });

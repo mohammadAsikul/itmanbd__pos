@@ -129,6 +129,115 @@ body {
   background-color: #133e6e;
 }
 
+.update__form {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.update__form .update__form--close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 2rem;
+  color: #FFFFFF;
+  cursor: pointer;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.update__form .update__form--close:hover {
+  color: #FFC107;
+}
+
+.update__form .dialog {
+  width: 450px;
+  height: auto;
+  border-radius: 8px;
+  background-color: #F8F9FA;
+  padding-bottom: 10px;
+}
+
+.update__form .dialog .dialog--heading {
+  border-bottom: 1px solid #343A40;
+  margin-bottom: 10px;
+}
+
+.update__form .dialog .dialog--heading h3 {
+  text-align: center;
+  padding: 10px 0;
+  font-size: 1.6rem;
+}
+
+.update__form .dialog .form__group {
+  padding: 0 15px;
+}
+
+.update__form .dialog .form__group input,
+.update__form .dialog .form__group select {
+  display: block;
+}
+
+.update__form .dialog .form__group label {
+  display: inline-block;
+  width: 100%;
+  font-size: 1.2rem;
+  color: #343A40;
+}
+
+.update__form .dialog .form__group .error--msg {
+  font-size: 15px;
+  color: #FFC107;
+}
+
+.update__form .dialog .form__group input,
+.update__form .dialog .form__group select,
+.update__form .dialog .form__group .save--btn {
+  display: inline-block;
+  width: 100%;
+  margin: 5px 0;
+  padding: 7px;
+  border: 1px solid #007BFF;
+}
+
+.update__form .dialog .form__group input:focus {
+  outline: 1px solid #6C757D;
+}
+
+.update__form .dialog .form__group .save--btn {
+  cursor: pointer;
+  background-color: #007BFF;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  color: #FFFFFF;
+  font-size: 1.1rem;
+}
+
+.update__form .dialog .form__group .save--btn:hover {
+  background-color: #6C757D;
+}
+
+.update__form.close {
+  top: -200%;
+}
+
 .user__main .user__main--container {
   display: -ms-grid;
   display: grid;

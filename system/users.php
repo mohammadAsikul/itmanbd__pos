@@ -1,5 +1,55 @@
 <?php require_once '../includes/header.php' ?>
-    <!-- main section start -->
+<span class="supplier__submit__form--close">
+    <i class="fas fa-window-close"></i>
+</span>
+<form id="userUpdateForm" class="update__form close">
+    <span class='update__form--close'>
+        <i class='fas fa-window-close'></i>
+    </span>
+    <div class='dialog' id='userDialog'>
+        <div class='dialog--heading'>
+            <h3>Update User</h3>
+        </div>
+        <div class='form__group'>
+            <label for='idName'>User Name</label>
+            <span id='errorUserName' class='error--msg'></span>
+            <input type='hidden' name='userId' id='userId' value='{$updateUserRow["id"]}'>                            
+            <input type='text' name='userName' id='userName' value='{$updateUserRow["username"]}'>
+        </div>
+        <div class='form__group'>
+            <label for='userPassword'>User Password</label>
+            <span id='errorUserPassword' class='error--msg'></span>
+            <input type='password' name='userPassword' id='userPassword' value=''>
+        </div>
+        <div class='form__group'>
+            <label for='userDesignation'>User Designation</label>
+            <span id='errorUserDesignation' class='error--msg'></span>
+            <input type='text' name='userDesignation' id='userDesignation' value='{$updateUserRow["designation"]}'>
+        </div>
+        <div class='form__group'>
+            <label for='userRole'>User Role</label>
+            <span id='errorUserRole' class='error--msg'></span>
+            <select name='userRole' id='userRole' class='userRole'>
+                <option value='{$updateUserRow["user_role"]}' selected disabled>Select the User Role</option>
+                <option value='1'>Super Admin</option>
+                <option value='2'>Admin</option>
+                <option value='3'>Management</option>
+                <option value='4'>User</option>
+            </select>
+        </div>
+        <div class='form__group'>
+            <label for='userStatus'>User Status</label>
+            <select name='userStatus' id='userStatus'>
+                <option value='Active' selected>Active</option>
+                <option value='Deactive'>Deactive</option>
+            </select>
+        </div>
+        <div class='form__group'>
+            <button type='button' name='userUpdate' id='userUpdate' class='save--btn user__save--btn'>Update</button>
+        </div>
+    </div>              
+</form>
+<!-- main section start -->
     <main id="main" class="main user__main">
         <div class="container user__main--container">
             <!-- insert -->
