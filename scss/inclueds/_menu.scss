@@ -103,3 +103,16 @@
 .menu.toggled{
     width: 80px !important;
 }
+.user__login--info{
+    width: 150px;
+    background-color: $bg-dark;
+    color: $text-light;
+    position: fixed;
+    top: - 52px;
+    right: 0;
+    padding: 10px;
+    border-radius: 4px;
+}
+.user__login--info.activeClick{
+    top: 52px;
+}

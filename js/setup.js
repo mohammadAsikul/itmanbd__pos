@@ -62,9 +62,57 @@ $(document).ready(function () {
             success: function (fetchData) {
                 $("#supplierFatchTable").html(fetchData);
             }
-        })
-    };
+        });
+    }
     fetchSupplierData();
+
+    //supplier edit
+    $(document).on("click", ".update", function (e) {
+        e.preventDefault();
+        $(".supplier__submit--form").removeClass('close');
+        let supplierEditId = $(this).attr("data-supplierEditId");
+        $.ajax({
+            url: "supplier_action.php",
+            type: "POST",
+            data: {supplierEditId: supplierEditId},
+            success: function (supplierEditData) {
+                // alert(supplierEditData);
+                $("#supplierSubmitForm").html();
+                $("#supplierSubmitForm").html(supplierEditData);
+            }
+        })
+    });
+    //close supplier update form
+
+    $(document).on('click', '#supplierUpdate', function (e) {
+        e.preventDefault();
+        setTimeout(function () {
+            $(".supplier__submit--form").addClass('close');
+        }, 3000);
+    });
+    // send the data to database
+    $(document).on('click', '#supplierUpdate', function (e) {
+        e.preventDefault();
+        //  get the update able data
+        let supplierUpdateId = $("#supplierUpdateId").val();
+        let supplierUpdateName = $("#supplierUpdateName").val();
+        let supplierUpdateContPerson = $("#supplierUpdateContPerson").val();
+        let supplierUpdateContNumber = $("#supplierUpdateContNumber").val();
+        let supplierUpdateEmail = $("#supplierUpdateEmail").val();
+        let supplierUpdateWhatsapp = $("#supplierUpdateWhatsapp").val();
+        let supplierUpdateAddress = $("#supplierUpdateAddress").val();
+        let supplierUpdateStatus = $("#supplierUpdateStatus").val();
+
+        $.ajax({
+            url: "supplier_action.php",
+            type: "POST",
+            data: {supplierUpdateId:supplierUpdateId, supplierUpdateName:supplierUpdateName, supplierUpdateContPerson:supplierUpdateContPerson, supplierUpdateContNumber:supplierUpdateContNumber, supplierUpdateEmail:supplierUpdateEmail, supplierUpdateWhatsapp:supplierUpdateWhatsapp, supplierUpdateAddress:supplierUpdateAddress, supplierUpdateStatus:supplierUpdateStatus},
+            success: function (updateSupplierData) {
+                alert(updateSupplierData);
+            }
+        })
+    })
+
     // client add window show and close functions
     $("#addClient").on('click', function (e) {
         e.preventDefault();

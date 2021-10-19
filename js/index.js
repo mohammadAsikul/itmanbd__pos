@@ -24,5 +24,9 @@ $(document).ready(function () {
             console.log(item.classList.remove("active"));
         })
     };
-    // po entry using table data
+    // user login info btn
+    $("#user_profile_btn").click(function (e) { 
+        e.preventDefault();
+        $(".user__login--info").toggleClass("activeClick");
+    });
 });

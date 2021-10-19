@@ -69,11 +69,9 @@
         $updateUserRole = $_POST['updateUserRole'];
         $updateUserStatus = $_POST['updateUserStatus'];
         $updateUserPasswordEncrypted = md5($updateUserPassword);
-        $updateUserSql = "UPDATE `ipos_user` SET username = '{$updateUserName}', password = '{$updateUserPasswordEncrypted}', designation = '{$updateUserDesignation}', user_role = {$updateUserRole}, status = '{$updateUserStatus}'";
+        $updateUserSql = "UPDATE `ipos_user` SET `username`='{$updateUserName}',`password`='{$updateUserPasswordEncrypted}',`designation`='{$updateUserDesignation}',`user_role`={$updateUserRole}, `status` = '{$updateUserStatus}' WHERE `id` =  {$updateUserId};";
         if (mysqli_query($conn, $updateUserSql) or die("User Update Page query problems." . mysqli_error($conn))) {
-            $printUpdateResult = "Data Update Successfully.";
-        } else{
-            $printUpdateResult = "Data Can't Update. Check the error first";
+            $printUpdateResult = 1;
         }
     }
 ?>

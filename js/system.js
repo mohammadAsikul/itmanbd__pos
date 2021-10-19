@@ -31,7 +31,7 @@ $(document).ready(function () {
     $(document).on("click", ".update", function (e) {
         e.preventDefault();
         $("#userUpdateForm").removeClass('close');
-        console.log($(".user__update--form").html());
+        // console.log($(".user__update--form").html());
         let id = $(this).attr("data-updateId");
         $.ajax({
             url: "updateUser.php",
@@ -63,11 +63,10 @@ $(document).ready(function () {
             data: { updateUserId: updateUserId, userUpdateName: userUpdateName, userUpdatePassword:userUpdatePassword, updateUserDesignation:updateUserDesignation, updateUserRole:updateUserRole, updateUserStatus:updateUserStatus },
             success: function (updatedData) {
                 fetchUserData();
-                alert(updatedData);
-                if (updatedData == "Data Update Successfully.") {
+                if (updatedData == 1) {
                     $("#userUpdateForm").addClass('close');
                 } else {
-                    alert(updatedData);
+                    alert("User Update Problems.");
                 }
             }
         });

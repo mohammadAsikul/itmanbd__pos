@@ -69,7 +69,7 @@
                         <button id="addSupplier" class="btn add--supplier">Add Supplier</button>
                     </div>
                 </div>
-                <table id="example" class="display item__show--table table" style="width:100%">
+                <table id="supplierTable" class="display item__show--table table" style="width:100%">
                   <thead>
                       <tr class="table__heading">
                         <th class="table__heading--items sl">SL</th>
@@ -88,18 +88,7 @@
                         <!-- fatch supplier data using ajax -->
                   </tbody>
                   <tfoot>
-                      <tr class="table__heading">
-                          <th class="table__heading--items sl">SL</th>
-                          <th class="table__heading--items supplier--name">Supplier Name</th>
-                          <th class="table__heading--items contact--person">Contact Person</th>
-                          <th class="table__heading--items contact--number">Contact Number</th>
-                          <th class="table__heading--items email">Email</th>
-                          <th class="table__heading--items whatsapp--number">Whatsapp</th>
-                          <th class="table__heading--items address">Address</th>
-                          <th class="table__heading--items status">Status</th>
-                          <th class="table__heading--items status">Balance</th>
-                          <th class="table__heading--items action">Actions</th>
-                      </tr>
+                      
                   </tfoot>
               </table>
             </div>

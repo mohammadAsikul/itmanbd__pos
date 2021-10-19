@@ -89,10 +89,6 @@
                     User Name
                 </button>
             </div>
-            <!-- profile__container -->
-            <div class="profile__container">
-
-            </div>
         </header>
         <!-- menu -->
         <nav id="menu" class="menu">
@@ -294,3 +290,10 @@
                 </li>
             </ul>
         </nav>
+        <div class="user__login--info">
+            <div class="username">Md. Ashikul Islam</div>
+            <div class="designation">
+                <span>Managing Director</span>
+            </div>
+            <div class="logout">Logout</div>
+        </div>
