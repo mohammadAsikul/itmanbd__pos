@@ -71,7 +71,8 @@
         $updateUserPasswordEncrypted = md5($updateUserPassword);
         $updateUserSql = "UPDATE `ipos_user` SET `username`='{$updateUserName}',`password`='{$updateUserPasswordEncrypted}',`designation`='{$updateUserDesignation}',`user_role`={$updateUserRole}, `status` = '{$updateUserStatus}' WHERE `id` =  {$updateUserId};";
         if (mysqli_query($conn, $updateUserSql) or die("User Update Page query problems." . mysqli_error($conn))) {
-            $printUpdateResult = 1;
+            $printUpdateResult = "1";
         }
+        echo $printUpdateResult;
     }
 ?>

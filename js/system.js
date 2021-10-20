@@ -63,7 +63,7 @@ $(document).ready(function () {
             data: { updateUserId: updateUserId, userUpdateName: userUpdateName, userUpdatePassword:userUpdatePassword, updateUserDesignation:updateUserDesignation, updateUserRole:updateUserRole, updateUserStatus:updateUserStatus },
             success: function (updatedData) {
                 fetchUserData();
-                if (updatedData == 1) {
+                if (updatedData == "1") {
                     $("#userUpdateForm").addClass('close');
                 } else {
                     alert("User Update Problems.");

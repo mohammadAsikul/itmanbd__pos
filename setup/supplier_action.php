@@ -46,8 +46,7 @@
                             <div class='form__group'>
                                 <label for='supplierStatus'>Supplier Status</label>
                                 <select name='supplierUpdateStatus' id='supplierUpdateStatus'>
-                                    <option value='Active' selected disabled>{$supplierUpdateRow['supplier_status']}</option>
-                                    <option value='Active'>Active</option>
+                                    <option value='Active' selected>Active</option>
                                     <option value='Deactive'>Deactive</option>
                                 </select>
                             </div>
@@ -63,6 +62,30 @@
     // send update data to database
     if (isset($_POST['supplierUpdateId'])) {
         include '../includes/config.php';
-        
+        $supplierUpdateDataOutput = "";
+        $supplierUpdateId = $_POST['supplierUpdateId'];
+        $supplierUpdateName = $_POST['supplierUpdateName'];
+        $supplierUpdateContPerson = $_POST['supplierUpdateContPerson'];
+        $supplierUpdateContNumber = $_POST['supplierUpdateContNumber'];
+        $supplierUpdateEmail = $_POST['supplierUpdateEmail'];
+        $supplierUpdateWhatsapp = $_POST['supplierUpdateWhatsapp'];
+        $supplierUpdateAddress = $_POST['supplierUpdateAddress'];
+        $supplierUpdateStatus = $_POST['supplierUpdateStatus'];
+        $supplierUpdateSql2 = "UPDATE `ipos_supplier` SET `supplier_name`='{$supplierUpdateName}',`supplier_cont_person`='{$supplierUpdateContPerson}',`supplier_cont_number`='{$supplierUpdateContNumber}',`supplier_email_address`='{$supplierUpdateEmail}',`supplier_whatsapp`='{$supplierUpdateWhatsapp}',`supplier_address`='{$supplierUpdateAddress}',`supplier_status`='{$supplierUpdateStatus}' WHERE supplier_id = {$supplierUpdateId}";
+        if (mysqli_query($conn, $supplierUpdateSql2) or die("sql update page query problems." . mysqli_error($conn))) {
+            $supplierUpdateDataOutput .= "Updated";
+        }
+        echo $supplierUpdateDataOutput;
+    }
+    //  supplier delete
+    if (isset($_POST['supplierDeleteId'])) {
+        include '../includes/config.php';
+        $supplierDeleteOutput = "";
+        $supplierDeleteId = $_POST['supplierDeleteId'];
+        $supplierDeleteSql = "DELETE FROM `ipos_supplier` WHERE supplier_id = {$supplierDeleteId}";
+        if (mysqli_query($conn, $supplierDeleteSql) or die("delete page sql problems. " . mysqli_error($conn))) {
+            $supplierDeleteOutput = "Supplier Deleted.";
+        }
+        echo $supplierDeleteOutput;
     }
 ?>

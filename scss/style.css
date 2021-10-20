@@ -434,14 +434,56 @@ body {
 }
 
 .user__login--info {
-  width: 150px;
+  width: 180px;
   background-color: #343A40;
   color: #F8F9FA;
   position: fixed;
-  top: -52px;
+  top: -200px;
   right: 0;
-  padding: 10px;
+  padding: 5px;
   border-radius: 4px;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.user__login--info .username,
+.user__login--info .designation,
+.user__login--info .logout {
+  text-align: center;
+}
+
+.user__login--info .username {
+  padding: 5px;
+  margin: 0 0 0 5px;
+}
+
+.user__login--info .designation {
+  margin: 0 0 0 5px;
+}
+
+.user__login--info .designation span {
+  font-size: 10px;
+}
+
+.user__login--info .logout {
+  margin-top: 5px;
+}
+
+.user__login--info .logout a {
+  display: block;
+  background-color: #F8F9FA;
+  color: #343A40;
+  padding: 5px;
+  border-radius: 8px;
+  width: 60%;
+  margin: auto;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.user__login--info .logout a:hover {
+  background-color: #FFC107;
+  color: #FFFFFF;
 }
 
 .user__login--info.activeClick {
@@ -588,8 +630,8 @@ body {
 }
 
 .main .container .show__table--container .table tbody tr:nth-child(even) {
-  background-color: #17A2B8;
-  color: #F8F9FA;
+  background-color: #d8d2d2;
+  color: #343A40;
 }
 
 .errors--msg {

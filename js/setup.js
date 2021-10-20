@@ -54,6 +54,7 @@ $(document).ready(function () {
             });
         }
     });
+
     // fetch supplier data using ajax
     function fetchSupplierData() {
         $.ajax({
@@ -82,14 +83,15 @@ $(document).ready(function () {
             }
         })
     });
-    //close supplier update form
 
+    //close supplier update form
     $(document).on('click', '#supplierUpdate', function (e) {
         e.preventDefault();
         setTimeout(function () {
             $(".supplier__submit--form").addClass('close');
         }, 3000);
     });
+
     // send the data to database
     $(document).on('click', '#supplierUpdate', function (e) {
         e.preventDefault();
@@ -108,9 +110,27 @@ $(document).ready(function () {
             type: "POST",
             data: {supplierUpdateId:supplierUpdateId, supplierUpdateName:supplierUpdateName, supplierUpdateContPerson:supplierUpdateContPerson, supplierUpdateContNumber:supplierUpdateContNumber, supplierUpdateEmail:supplierUpdateEmail, supplierUpdateWhatsapp:supplierUpdateWhatsapp, supplierUpdateAddress:supplierUpdateAddress, supplierUpdateStatus:supplierUpdateStatus},
             success: function (updateSupplierData) {
+                fetchSupplierData();
                 alert(updateSupplierData);
             }
         })
+    })
+    //supplier delete action
+    $(document).on("click", '#delete', function (e) {
+        e.preventDefault();
+        let conf = confirm("Are you sure?")
+        let supplierDeleteId = $(this).attr("data-supplierDelete");
+        if (conf == true) {
+            $.ajax({
+                url: "supplier_action.php",
+                type: "POST",
+                data: {supplierDeleteId:supplierDeleteId},
+                success: function (deleteData) {
+                    fetchSupplierData();
+                    alert(deleteData);
+                }
+            });
+        }
     })
 
     // client add window show and close functions
@@ -299,5 +319,5 @@ $(document).ready(function () {
         })
     }
     fetchSubCategoryData();
-    
+
 });

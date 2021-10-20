@@ -86,7 +86,7 @@
                     <span class="icons user__login--icon">
                         <i class="fas fa-user-cog"></i>
                     </span>
-                    User Name
+                    <?php echo strtoupper($_SESSION['username']);?>
                 </button>
             </div>
         </header>
@@ -291,9 +291,9 @@
             </ul>
         </nav>
         <div class="user__login--info">
-            <div class="username">Md. Ashikul Islam</div>
+            <div class="username"><?php echo "Welcome" . " " . strtoupper($_SESSION['username']);?></div>
             <div class="designation">
-                <span>Managing Director</span>
+                <span><?php echo strtoupper($_SESSION['designation']);?></span>
             </div>
-            <div class="logout">Logout</div>
+            <div class="logout"><a href="../accounts/logout.php">Logout</a></div>
         </div>

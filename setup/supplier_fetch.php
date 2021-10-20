@@ -19,7 +19,7 @@
                     <td class='table--data--items table--data--action' data-id=''>
                         <button class='print' id='print' data-id='$row[supplier_id]'><i class='fas fa-print'></i></button>
                         <button class='update' id='update' data-supplierEditId='$row[supplier_id]'><i class='fas fa-edit'></i></button>
-                        <button class='delete' id='delete' data-id='$row[supplier_id]'><i class='fas fa-trash'></i></button>
+                        <button class='delete' id='delete' data-supplierDelete='$row[supplier_id]'><i class='fas fa-trash'></i></button>
                     </td>
                 </tr>
                 ";

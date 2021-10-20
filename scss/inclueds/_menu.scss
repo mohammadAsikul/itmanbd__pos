@@ -104,14 +104,48 @@
     width: 80px !important;
 }
 .user__login--info{
-    width: 150px;
+    width: 180px;
     background-color: $bg-dark;
     color: $text-light;
     position: fixed;
-    top: - 52px;
+    top: -200px;
     right: 0;
-    padding: 10px;
+    padding: 5px;
     border-radius: 4px;
+    transition: all 0.3s ease;
+    .username,
+    .designation,
+    .logout{
+        text-align: center;
+    }
+    .username{
+        padding: 5px;
+        margin: 0 0 0 5px;
+    }
+    .designation{
+        margin: 0 0 0 5px;
+        span{
+            font-size: 10px;
+        }
+    }
+    .logout{
+        margin-top: 5px;
+        a{
+            display: block;
+            background-color: $bg-light;
+            color: $text-dark;
+            padding: 5px;
+            border-radius: 8px;
+            width: 60%;
+            margin: auto;
+            transition: all 0.3s ease;
+        }
+        a:hover{
+            background-color: $bg-warning;
+            color: $text-white;
+
+        }
+    }
 }
 .user__login--info.activeClick{
     top: 52px;
