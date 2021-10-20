@@ -2,7 +2,7 @@ $(document).ready(function () {
     // setup directory
         
     // datatables for the purchase order table
-    $('#example').DataTable();
+    // $('#example').DataTable();
     // $("#brands")
     // action dropdown section purchase order
     let actionDropdown = document.querySelectorAll("#actionDropdown");

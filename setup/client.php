@@ -1,8 +1,8 @@
 <?php require_once '../includes/header.php' ?>
 <!-- main section start -->
 <!-- supplier insert -->
-<form id="clientSubmitForm" class="supplier__submit--form close">
-    <span class="supplier__submit__form--close">
+<form id="clientSubmitForm" class="client__submit--form close">
+    <span class="client__submit__form--close">
             <i class="fas fa-window-close"></i>
     </span>
     <div class="supplier__dialog" id="supplierDialog">
@@ -82,17 +82,7 @@
                         <!-- fatch supplier data using ajax -->
                     </tbody>
                     <tfoot>
-                        <tr class="table__heading">
-                        <th class="table__heading--items sl">SL</th>
-                            <th class="table__heading--items supplier--name">Client Name</th>
-                            <th class="table__heading--items contact--person">Contact Person</th>
-                            <th class="table__heading--items contact--number">Contact Number</th>
-                            <th class="table__heading--items email">Email</th>
-                            <th class="table__heading--items address">Address</th>
-                            <th class="table__heading--items status">Status</th>
-                            <th class="table__heading--items status">Balance</th>
-                            <th class="table__heading--items action">Actions</th>
-                        </tr>
+
                     </tfoot>
               </table>
             </div>

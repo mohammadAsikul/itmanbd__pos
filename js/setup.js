@@ -136,12 +136,12 @@ $(document).ready(function () {
     // client add window show and close functions
     $("#addClient").on('click', function (e) {
         e.preventDefault();
-        $(".supplier__submit--form").removeClass('close');
+        $(".client__submit--form").removeClass('close');
     });
     // close
-    $(".supplier__submit__form--close").on('click', function (e) {
+    $(".client__submit__form--close").on('click', function (e) {
         e.preventDefault();
-        $(".supplier__submit--form").addClass('close');
+        $(".client__submit--form").addClass('close');
         // to remove all responce msg class
         $("#response").fadeOut();
         $("#response").removeClass('success--msg').removeClass('errors--msg').removeClass('process--msg').html("");
@@ -197,6 +197,29 @@ $(document).ready(function () {
         })
     };
     fetchClientData();
+    // update client
+    $(document).on('click', '#clientUpdate', function (e) {
+        e.preventDefault();
+        let clientUpdateId = $(this).attr("data-updateId");
+        $.ajax({
+            url: "client_action.php",
+            type: "POST",
+            data: {clientUpdateId:clientUpdateId},
+            success: function (updateClientData) {
+                $("#clientSubmitForm").html();
+                $(".client__submit--form").removeClass('close');
+                $("#clientSubmitForm").html(updateClientData);
+            }
+        })
+    });
+    //close update page
+    $(document).on('click', '.client__submit__form--close', function (e) {
+        e.preventDefault();
+        $(".client__submit--form").addClass('close');
+    });
+
+    //send update data to database
+
     // show category to insert data to database using ajax
     $("#addCategory").on('click', function (e) {
         e.preventDefault();
